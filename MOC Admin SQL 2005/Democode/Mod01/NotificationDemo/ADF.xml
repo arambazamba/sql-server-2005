@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.microsoft.com/MicrosoftNotificationServices/ApplicationDefinitionFileSchema">
+	<Version>
+		<Major>1</Major>
+		<Minor>0</Minor>
+		<Build>0</Build>
+		<Revision>0</Revision>
+	</Version>
+	<History>
+		<CreationDate>2004-01-06</CreationDate>
+		<CreationTime>10:01:52.0000000-08:00</CreationTime>
+		<LastModifiedDate>2004-01-07</LastModifiedDate>
+		<LastModifiedTime>11:54:13.3261327-08:00</LastModifiedTime>
+	</History>
+	<EventClasses>
+	    <!-- ##### Enter event details here ##### -->
+		<EventClass>
+			<EventClassName>ProductReviewEvent</EventClassName>
+			<Schema>
+				<Field>
+					<FieldName>ProductId</FieldName>
+					<FieldType>int</FieldType>
+					<FieldTypeMods>not null</FieldTypeMods>
+				</Field>
+				<Field>
+					<FieldName>ProductName</FieldName>
+					<FieldType>nvarchar(50)</FieldType>
+					<FieldTypeMods>not null</FieldTypeMods>
+				</Field>
+				<Field>
+					<FieldName>Rating</FieldName>
+					<FieldType>int</FieldType>
+					<FieldTypeMods>not null</FieldTypeMods>
+				</Field>
+				<Field>
+					<FieldName>Comments</FieldName>
+					<FieldType>nvarchar(3850)</FieldType>
+					<FieldTypeMods>null</FieldTypeMods>
+				</Field>
+			</Schema>
+			<IndexSqlSchema>
+				<SqlStatement>CREATE INDEX ReviewEventsIndex ON ProductReviewEvent ( ProductId )</SqlStatement>
+			</IndexSqlSchema>
+		</EventClass>
+	</EventClasses>
+	<SubscriptionClasses>
+		<SubscriptionClass>
+			<SubscriptionClassName>ProductReviewSubscription</SubscriptionClassName>
+			<Schema>
+				<Field>
+					<FieldName>DeviceName</FieldName>
+					<FieldType>nvarchar(255)</FieldType>
+					<FieldTypeMods>not null</FieldTypeMods>
+				</Field>
+				<Field>
+					<FieldName>SubscriberLocale</FieldName>
+					<FieldType>nvarchar(10)</FieldType>
+					<FieldTypeMods>not null</FieldTypeMods>
+				</Field>
+				<Field>
+					<FieldName>ProductId</FieldName>
+					<FieldType>int</FieldType>
+					<FieldTypeMods>not null</FieldTypeMods>
+				</Field>
+			</Schema>
+			<EventRules>
+				<!-- ##### Enter event rule here ##### -->
+				<EventRule>
+					<RuleName>ProductReviewSubscriptionsEventRule</RuleName>
+					<Action>
+					INSERT INTO ProductReviewNotification
+                    ( SubscriberId,
+                      DeviceName,
+                      SubscriberLocale,
+                      ProductId, 
+                      ProductName,
+                      Rating,
+                      Comments )
+				    SELECT 	s.SubscriberId, s.DeviceName,
+					s.SubscriberLocale, e.ProductId, e.ProductName,
+					e.Rating, e.Comments
+					FROM ProductReviewEvent e 
+					JOIN ProductReviewSubscription s
+					ON e.ProductId = s.ProductId
+					</Action>
+					<EventClassName>ProductReviewEvent</EventClassName>
+				</EventRule>
+			</EventRules>
+		</SubscriptionClass>
+	</SubscriptionClasses>
+	<NotificationClasses>
+		<NotificationClass>
+			<NotificationClassName>ProductReviewNotification</NotificationClassName>
+			<Schema>
+				<Fields>
+				<Field>
+					<FieldName>ProductId</FieldName>
+					<FieldType>int</FieldType>
+				</Field>
+				<Field>
+					<FieldName>ProductName</FieldName>
+					<FieldType>nvarchar(50)</FieldType>
+				</Field>
+				<Field>
+					<FieldName>Rating</FieldName>
+					<FieldType>int</FieldType>
+				</Field>
+				<Field>
+					<FieldName>Comments</FieldName>
+					<FieldType>nvarchar(3850)</FieldType>
+				</Field>
+				</Fields>
+			</Schema>
+			
+			<ContentFormatter>
+				<ClassName>XsltFormatter</ClassName>
+				<Arguments>
+					<Argument>
+						<Name>XsltBaseDirectoryPath</Name>
+						<Value>%_BaseDirectoryPath_%</Value>
+					</Argument>
+               <Argument>
+                  <Name>XsltFileName</Name>
+                  <Value>ProductReviewNotification.xslt</Value>
+               </Argument>
+				</Arguments>
+			</ContentFormatter>
+			
+			<!-- ##### Enter protocol details here ##### -->
+			<Protocols>
+	       <Protocol>
+               <ProtocolName>SMTP</ProtocolName>
+               <Fields>
+                  <Field>
+                     <FieldName>Subject</FieldName>
+                     <SqlExpression>&apos;Product review notification: &apos;+CONVERT (NVARCHAR(30), GETDATE())</SqlExpression>
+                  </Field>
+                  <Field>
+                     <FieldName>BodyFormat</FieldName>
+                     <SqlExpression>&apos;html&apos;</SqlExpression>
+                  </Field>
+                  <Field>
+                     <FieldName>From</FieldName>
+                     <SqlExpression>&apos;SQLServer@adventure-works.com&apos;</SqlExpression>
+                  </Field>
+                  <Field>
+                     <FieldName>Priority</FieldName>
+                     <SqlExpression>&apos;Normal&apos;</SqlExpression>
+                  </Field>
+                  <Field>
+                     <FieldName>To</FieldName>
+                     <SqlExpression>DeviceAddress</SqlExpression>
+                  </Field>
+               </Fields>
+            </Protocol>
+			</Protocols>
+			<ExpirationAge>PT2H</ExpirationAge>
+		</NotificationClass>
+	</NotificationClasses>
+	<Providers>
+		<NonHostedProvider>
+			<ProviderName>AWReviewEventProvider</ProviderName>
+		</NonHostedProvider>
+	</Providers>
+	<Generator>
+		<SystemName>%_NSSystem_%</SystemName>
+	</Generator>
+	<Distributors>
+		<Distributor>
+			<SystemName>%_NSSystem_%</SystemName>
+		</Distributor>
+	</Distributors>
+	<ApplicationExecutionSettings>
+		<QuantumDuration>P0DT0H0M30S</QuantumDuration>
+		<ChronicleQuantumLimit>0</ChronicleQuantumLimit>
+		<SubscriptionQuantumLimit>0</SubscriptionQuantumLimit>
+		<ProcessEventsInOrder>true</ProcessEventsInOrder>
+	</ApplicationExecutionSettings>
+</Application>

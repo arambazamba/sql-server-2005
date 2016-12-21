@@ -1,0 +1,15 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "AWReviews", "AWReviews.sqlwbsqlp", "{0DEB5321-44D4-4D42-83A0-E3A821A45179}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Display Name|Default = Display Name|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0DEB5321-44D4-4D42-83A0-E3A821A45179}.Display Name|Default.ActiveCfg = Display Name
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

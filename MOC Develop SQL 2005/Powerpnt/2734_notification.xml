@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="ANSI"?>
+<captionXML>
+  <config/>
+  <captions>
+    <caption>
+      <ID>Caption1</ID>
+      <displaytext><![CDATA[This animation describes how you can use Microsoft® SQL Server™ 2005 Notification Services to implement subscription-based notification solutions.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption2</ID>
+      <displaytext><![CDATA[Notification Services is a framework for implementing applications that notify subscribers when specific events occur.  Notification Services solutions are configured using two kinds of XML file:]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption3</ID>
+      <displaytext><![CDATA[a configuration file, which contains the settings for an instance of Notification Services, and application definition files, or ADFs, which contains settings for an individual notification application in that instance.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption4</ID>
+      <displaytext><![CDATA[These files are used to define SQL Server databases; one for the instance, and one for each application.  Events can be anything that a user might want to be notified about,]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption5</ID>
+      <displaytext><![CDATA[such as a stock price change, an order shipment, or a goal scored in a soccer match. Events are submitted to Notification Services by an event provider and stored in a database table.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption6</ID>
+      <displaytext><![CDATA[Users register themselves as subscribers  through a subscription management application , specifying details about the subscriber, subscription details for specific events, and information about devices that notifications can be sent to.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption7</ID>
+      <displaytext><![CDATA[They can create subscriptions that send notifications as events occur, or at regularly scheduled intervals.  Notification Services uses an internal generator component to match events to subscriptions and create appropriate notifications.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption8</ID>
+      <displaytext><![CDATA[Because event data and subscription data are stored in tables, the generator can use set-based SQL queries to perform the matching operation extremely efficiently.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption9</ID>
+      <displaytext><![CDATA[The notifications are then passed to an internal distributor component, which formats the notification appropriately and sends it to the devices specified by the subscriber.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption10</ID>
+      <displaytext><![CDATA[The notifications can be sent in various forms, including e-mail, SMS text messages, and .NET Alerts.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption11</ID>
+      <displaytext><![CDATA[Events are collected by event providers and submitted to Notification Services using one of three APIs.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption12</ID>
+      <displaytext><![CDATA[A managed .NET API  provides an Event object and an Event Collector object and can be used to submit events using managed code.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption13</ID>
+      <displaytext><![CDATA[A COM API uses Interop to make the managed API available to COM-based applications.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption14</ID>
+      <displaytext><![CDATA[An XML API allows event sources to submit an XML file containing event data, which is then submitted using SQL Server’s XML Bulk Load component.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption15</ID>
+      <displaytext><![CDATA[Finally, a SQL API can be used to submit events through stored procedures.  Whichever API is used, the event data is submitted to Notification Services and written to the database.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption16</ID>
+      <displaytext><![CDATA[Events are generally submitted as a batch to enable more efficient processing.  Developers can create custom event providers using any of the APIs.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption17</ID>
+      <displaytext><![CDATA[Additionally, Notification Services provides standard event providers such as the Schedule SQL event provider and the file system watcher event provider.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption18</ID>
+      <displaytext><![CDATA[Users subscribe to events through a subscription management application created by a developer.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption19</ID>
+      <displaytext><![CDATA[Notification Services provides a library of subscription management objects to make it easier to develop subscription management applications.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption20</ID>
+      <displaytext><![CDATA[The subscription management objects consist of a Subscriber object, a SubscriberDevice object, and a Subscription object.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption21</ID>
+      <displaytext><![CDATA[The subscription management objects write their data to the Notification Services databases. This data is used to generate notifications.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption22</ID>
+      <displaytext><![CDATA[Based on the time interval (called the “Quanta”) specified in the application definition file, the generator  periodically uses the rules defined by the application developer]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption23</ID>
+      <displaytext><![CDATA[to perform Transact-SQL queries against the event and subscription data. Any notifications found by the rules are stored in a Notifications table  to be processed as a batch.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption24</ID>
+      <displaytext><![CDATA[After the generator creates the notifications, the distributor uses the data in the Notifications  table to determine the required formatting for the notifications]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption25</ID>
+      <displaytext><![CDATA[and transforms the data with the appropriate content formatter (such as an XSLT style sheet).]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption26</ID>
+      <displaytext><![CDATA[The distributor then passes the formatted notification to the appropriate delivery channel so that it can be sent to the devices specified by the subscriber.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption27</ID>
+      <displaytext><![CDATA[Delivery channels can be created for the specific protocols that a Notification Services application will use to deliver notifications.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption28</ID>
+      <displaytext><![CDATA[Notification Services supports three protocols out of the box: SMTP, HTTP, and File for writing notifications to the file system.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption29</ID>
+      <displaytext><![CDATA[You can also create custom protocol implementations.  In this animation, you have seen how Notification Services can be used to create applications in which users subscribe to events.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption30</ID>
+      <displaytext><![CDATA[Notification Services provides a highly scalable platform for implementing efficient solutions that enable notifications to multiple, diverse devices.]]></displaytext>	
+    </caption>
+  </captions>
+</captionXML> 
+

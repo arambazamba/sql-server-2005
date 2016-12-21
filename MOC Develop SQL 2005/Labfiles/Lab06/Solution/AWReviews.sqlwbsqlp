@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="AWReviews">
+  <Items>
+    <LogicalFolder Name="Connections" Type="2">
+      <Items>
+        <ConnectionNode Name="localhost:SQL2005PC\Administrator">
+          <Created>2004-06-18T10:13:10.0226496-07:00</Created>
+          <Type>SQL</Type>
+          <Server>localhost</Server>
+          <UserName />
+          <Authentication>Integrated</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>SQL Server Management Studio</ApplicationName>
+        </ConnectionNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Queries" Type="0">
+      <Items>
+        <FileNode Name="CreateEventProvider.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:localhost:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>localhost</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>C:\Program Files\Microsoft Learning\2734\LabFiles\Lab06\Solution\CreateEventProvider.sql</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Miscellaneous" Type="3">
+      <Items>
+        <FileNode Name="ADF.xml">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>C:\Program Files\Microsoft Learning\2734\LabFiles\Lab06\Solution\ADF.xml</FullPath>
+        </FileNode>
+        <FileNode Name="Config.xml">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>C:\Program Files\Microsoft Learning\2734\LabFiles\Lab06\Solution\Config.xml</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+  </Items>
+</SqlWorkbenchSqlProject>

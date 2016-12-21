@@ -1,0 +1,4 @@
+RUN SCRIPT
+==========
+sqlcmd -E -d AWPersonnel -i CopyData.sql –v DestTab="AWPersonnel.dbo.Employee" SourceTab="AdventureWorks.HumanResources.Employee"
+

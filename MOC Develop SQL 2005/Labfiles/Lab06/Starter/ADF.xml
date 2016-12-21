@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.microsoft.com/MicrosoftNotificationServices/ApplicationDefinitionFileSchema">
+	<Version>
+		<Major>1</Major>
+		<Minor>0</Minor>
+		<Build>0</Build>
+		<Revision>0</Revision>
+	</Version>
+	<History>
+		<CreationDate>2004-01-06</CreationDate>
+		<CreationTime>10:01:52.0000000-08:00</CreationTime>
+		<LastModifiedDate>2004-01-07</LastModifiedDate>
+		<LastModifiedTime>11:54:13.3261327-08:00</LastModifiedTime>
+	</History>
+	<EventClasses>
+	    <!-- ##### Enter event details here ##### -->
+
+	</EventClasses>
+	<SubscriptionClasses>
+		<SubscriptionClass>
+			<SubscriptionClassName>ProductReviewSubscription</SubscriptionClassName>
+			<Schema>
+				<Field>
+					<FieldName>DeviceName</FieldName>
+					<FieldType>nvarchar(255)</FieldType>
+					<FieldTypeMods>not null</FieldTypeMods>
+				</Field>
+				<Field>
+					<FieldName>SubscriberLocale</FieldName>
+					<FieldType>nvarchar(10)</FieldType>
+					<FieldTypeMods>not null</FieldTypeMods>
+				</Field>
+				<Field>
+					<FieldName>ProductId</FieldName>
+					<FieldType>int</FieldType>
+					<FieldTypeMods>not null</FieldTypeMods>
+				</Field>
+			</Schema>
+			<EventRules>
+				<!-- ##### Enter event rule here ##### -->
+	
+			</EventRules>
+		</SubscriptionClass>
+	</SubscriptionClasses>
+	<NotificationClasses>
+		<NotificationClass>
+			<NotificationClassName>ProductReviewNotification</NotificationClassName>
+			<Schema>
+				<Fields>
+				<Field>
+					<FieldName>ProductId</FieldName>
+					<FieldType>int</FieldType>
+				</Field>
+				<Field>
+					<FieldName>ProductName</FieldName>
+					<FieldType>nvarchar(50)</FieldType>
+				</Field>
+				<Field>
+					<FieldName>Rating</FieldName>
+					<FieldType>int</FieldType>
+				</Field>
+				<Field>
+					<FieldName>Comments</FieldName>
+					<FieldType>nvarchar(3850)</FieldType>
+				</Field>
+				</Fields>
+			</Schema>
+			
+			<ContentFormatter>
+				<ClassName>XsltFormatter</ClassName>
+				<Arguments>
+					<Argument>
+						<Name>XsltBaseDirectoryPath</Name>
+						<Value>%_BaseDirectoryPath_%</Value>
+					</Argument>
+               <Argument>
+                  <Name>XsltFileName</Name>
+                  <Value>ProductReviewNotification.xslt</Value>
+               </Argument>
+				</Arguments>
+			</ContentFormatter>
+			
+			<!-- ##### Enter protocol details here ##### -->
+
+			<ExpirationAge>PT2H</ExpirationAge>
+		</NotificationClass>
+	</NotificationClasses>
+	<Providers>
+		<NonHostedProvider>
+			<ProviderName>AWReviewEventProvider</ProviderName>
+		</NonHostedProvider>
+	</Providers>
+	<Generator>
+		<SystemName>%_NSSystem_%</SystemName>
+	</Generator>
+	<Distributors>
+		<Distributor>
+			<SystemName>%_NSSystem_%</SystemName>
+		</Distributor>
+	</Distributors>
+	<ApplicationExecutionSettings>
+		<QuantumDuration>P0DT0H0M30S</QuantumDuration>
+		<ChronicleQuantumLimit>0</ChronicleQuantumLimit>
+		<SubscriptionQuantumLimit>0</SubscriptionQuantumLimit>
+		<ProcessEventsInOrder>true</ProcessEventsInOrder>
+	</ApplicationExecutionSettings>
+</Application>

@@ -1,0 +1,15 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "ServiceBrokerDemo", "ServiceBrokerDemo.sqlwbsqlp", "{8B8A8C6F-8BD8-4ECF-BF36-99C23EE994F9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Display Name|Default = Display Name|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8B8A8C6F-8BD8-4ECF-BF36-99C23EE994F9}.Display Name|Default.ActiveCfg = Display Name
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

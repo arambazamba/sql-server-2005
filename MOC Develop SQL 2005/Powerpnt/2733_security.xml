@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="ANSI"?>
+<captionXML>
+  <config/>
+  <captions>
+    <caption>
+      <ID>Caption1</ID>
+      <displaytext><![CDATA[This animation describes the Microsoft® SQL Server™ 2005 security architecture, which has been considerably enhanced in this release.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption2</ID>
+      <displaytext><![CDATA[After viewing this animation, you will be able to describe how SQL Server 2005 uses principals, securables, and permissions to secure database applications. Security in SQL Server 2005 is based on principals, securables, and permissions.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption3</ID>
+      <displaytext><![CDATA[Principals are security accounts that can access the system, securables are resources within the system, and permissions allow a principal to perform a particular action on a securable.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption4</ID>
+      <displaytext><![CDATA[Let’s examine each of these concepts in more detail, starting with principals. There are three levels of principal in a SQL Server system; the Microsoft Windows® level, the SQL Server level, and the database level.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption5</ID>
+      <displaytext><![CDATA[Principals at the Windows level include Windows groups, domain user accounts, and local user accounts. At the SQL Server level, there are logins and server roles. Logins can be Windows logins or SQL Server logins.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption6</ID>
+      <displaytext><![CDATA[By default, only Windows logins are enabled. Windows accounts are mapped to Windows logins in SQL Server. Both Windows logins and SQL Server logins can be assigned to server roles.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption7</ID>
+      <displaytext><![CDATA[This makes it easier to manage large numbers of users who need similar permissions. Passwords for Windows logins are validated by Windows and can be restricted using a policy assigned to the associated Windows account.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption8</ID>
+      <displaytext><![CDATA[ This policy is managed by Windows and enforces restrictions on password complexity, expiration, and so on.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption9</ID>
+      <displaytext><![CDATA[Passwords for SQL Server logins are validated by SQL Server, and in this release they can be restricted by using password policies that are managed by SQL Server. Password policies are defined as part of the new CREATE LOGIN statement.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption10</ID>
+      <displaytext><![CDATA[At the database level, there are users, database roles, and application roles. Logins are mapped to database users. And users can be added to one or more database roles.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption11</ID>
+      <displaytext><![CDATA[Application roles are used to set an alternative security context based on the client application. Securables also exist at different levels.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption12</ID>
+      <displaytext><![CDATA[At the Windows level, securables relating to SQL Server consist of the files and registry keys that SQL Server uses. At the SQL Server level, securables are organized into a hierarchy of scopes. The top-level scope is the server scope.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption13</ID>
+      <displaytext><![CDATA[This scope correlates to the SQL Server principals level. The server scope includes securables such as logins, HTTP endpoints, certificates, and event notifications.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption14</ID>
+      <displaytext><![CDATA[The server scope also includes one or more databases, which represent the next level of scope. The database scope includes securables such as services, assemblies, and XML  schemas. Also at the database scope is the schema securable.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption15</ID>
+      <displaytext><![CDATA[A database can contain one or more schemas, each acting as a namespace for objects and the lowest securable scope. The schema scope contains securables such as tables, views, and procedures.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption16</ID>
+      <displaytext><![CDATA[Permissions are used to allow principals to perform actions on securables. At the Windows level, Windows Access Control Lists, or ACLs  are used to grant or deny permissions.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption17</ID>
+      <displaytext><![CDATA[In SQL Server, the GRANT, REVOKE, and DENY statements are used to control the actions that principals can perform on securables. The specific permissions that can be granted depend on the individual securable.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption18</ID>
+      <displaytext><![CDATA[This release of SQL Server includes a number of new permissions that apply to different securables and scopes. Permissions granted at each scope are implicitly inherited by securables in lower scopes.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption19</ID>
+      <displaytext><![CDATA[For example, a login that is granted the CONTROL permission on a database will automatically have all the permissions associated with the DBO database role in that database, and a database user granted SELECT permission on a schema will]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption20</ID>
+      <displaytext><![CDATA[automatically have SELECT permission on all securables in that schema. Schemas are used to organize database objects into namespaces. Let’s see how object names are resolved when multiple schemas are used.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption21</ID>
+      <displaytext><![CDATA[By default, a database contains a user named dbo, representing the database owner. The database also contains a single schema, which is also named dbo.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption22</ID>
+      <displaytext><![CDATA[If an object such as a table is created in the dbo schema, its full name consists of the name of the server, the name of the database, the schema name, and the object name separated by .s]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption23</ID>
+      <displaytext><![CDATA[so on a server named SERVER1, this product table’s full name is server1.Adventure Works.dbo.Products. Multiple schemas can be created in a database to logically organize objects into different namespaces.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption24</ID>
+      <displaytext><![CDATA[In this example, a new schema named SalesData is created. The dbo user in our example uses the dbo schema by default. To create an object in the SalesData schema, the schema name must be used explicitly in the CREATE statement.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption25</ID>
+      <displaytext><![CDATA[The current server and database are assumed implicitly. Let’s suppose a new user named Fred is created. If no default schema is assigned to a user, the dbo schema is assumed for all unqualified object names used in statements by the user.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption26</ID>
+      <displaytext><![CDATA[If Fred tries to retrieve data from the Products table without specifying its full name, the dbo schema is assumed and the name is resolved to Server1.Adventure Works.dbo.Products.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption27</ID>
+      <displaytext><![CDATA[If Fred tries to use an unqualified name for the Orders table, the dbo schema is again assumed and the name is resolved to Server1.Adventure Works.dbo. Orders—a table that does not exist.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption28</ID>
+      <displaytext><![CDATA[To access data in the Orders table, Fred must qualify it with the schema name. Let’s suppose another new user named Amy is created. This time, the SalesData schema is assigned as the user’s default schema.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption29</ID>
+      <displaytext><![CDATA[When Amy tries to retrieve data from the Orders table without specifying its full name, the user’s default schema is assumed. The name in this case is resolved to Server1.Adventure Works.SalesData.Orders.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption30</ID>
+      <displaytext><![CDATA[If Amy uses an unqualified name for the Products table, the user’s default schema is again assumed and the name is initially resolved to Server1.Adventure Works.SalesData.Products.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption31</ID>
+      <displaytext><![CDATA[Since this table does not exist, SQL Server automatically falls back to the dbo schema and resolves the name to Server1.Adventure Works.dbo.Products. In this animation, you have seen how:]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption32</ID>
+      <displaytext><![CDATA[Principals require permissions to perform actions on securables. Principals exist at Windows, SQL Server, and database levels. Securables in SQL Server are organized into server, database, and schema scopes.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption33</ID>
+      <displaytext><![CDATA[Schemas are used as namespaces for database objects.]]></displaytext>	
+    </caption>
+    <caption>
+      <ID>Caption34</ID>
+      <displaytext><![CDATA[And default namespaces are used in name resolution.]]></displaytext>	
+    </caption>
+  </captions>
+</captionXML>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Update DB Skills">
+  <Items>
+    <LogicalFolder Name="Connections" Type="2">
+      <Items>
+        <ConnectionNode Name="SQL2005PC:SQL2005PC\Administrator">
+          <Created>2004-09-13T12:09:22.4687472-07:00</Created>
+          <Type>SQL</Type>
+          <Server>SQL2005PC</Server>
+          <UserName />
+          <Authentication>Integrated</Authentication>
+          <InitialDB>AdventureWorks</InitialDB>
+          <LoginTimeout>15</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>SQL Server Management Studio</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="localhost:SQL2005PC\Administrator">
+          <Created>2004-09-14T10:10:04.3674688-07:00</Created>
+          <Type>SQL</Type>
+          <Server>localhost</Server>
+          <UserName />
+          <Authentication>Integrated</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Queries" Type="0">
+      <Items>
+        <FileNode Name="Security.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQL2005PC:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQL2005PC</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>C:\Documents and Settings\Administrator\My Documents\SQL Server Management Studio\Projects\Update DB Skills\Security.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Output.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQL2005PC:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQL2005PC</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>C:\Documents and Settings\Administrator\My Documents\SQL Server Management Studio\Projects\Update DB Skills\Output.sql</FullPath>
+        </FileNode>
+        <FileNode Name="CTE.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQL2005PC:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQL2005PC</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>C:\Documents and Settings\Administrator\My Documents\SQL Server Management Studio\Projects\Update DB Skills\CTE.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Apply.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQL2005PC:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQL2005PC</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>C:\Documents and Settings\Administrator\My Documents\SQL Server Management Studio\Projects\Update DB Skills\Apply.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Ranking.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQL2005PC:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQL2005PC</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>C:\Documents and Settings\Administrator\My Documents\SQL Server Management Studio\Projects\Update DB Skills\Ranking.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Try Catch.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQL2005PC:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQL2005PC</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>C:\Documents and Settings\Administrator\My Documents\SQL Server Management Studio\Projects\Update DB Skills\Try Catch.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Mod 3 XML.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQL2005PC:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQL2005PC</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>C:\Documents and Settings\Administrator\My Documents\SQL Server Management Studio\Projects\Update DB Skills\Mod 3 XML.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Native Http.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:localhost:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>localhost</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>C:\Documents and Settings\Administrator\My Documents\SQL Server Management Studio\Projects\Update DB Skills\Native Http.sql</FullPath>
+        </FileNode>
+        <FileNode Name="CLR.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQL2005PC:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQL2005PC</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>C:\Documents and Settings\Administrator\My Documents\SQL Server Management Studio\Projects\Update DB Skills\CLR.sql</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Miscellaneous" Type="3">
+      <Items />
+    </LogicalFolder>
+  </Items>
+</SqlWorkbenchSqlProject>

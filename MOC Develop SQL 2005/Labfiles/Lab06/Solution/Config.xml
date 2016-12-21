@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NotificationServicesInstance xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.microsoft.com/MicrosoftNotificationServices/ConfigurationFileSchema">
+<!--Default Parameters-->
+<ParameterDefaults>
+   <Parameter>
+      <Name>BaseDirectoryPath</Name>
+      <Value>C:\Program Files\Microsoft Learning\2734\Labfiles\Lab06\Solution</Value>
+   </Parameter>
+   <Parameter>
+      <Name>SqlServer</Name>
+      <Value>SQL2005PC</Value>
+   </Parameter>
+</ParameterDefaults>
+    <!-- ##### Enter instance details here ##### -->
+	<InstanceName>AWReviewService</InstanceName>
+	<SqlServerSystem>%SqlServer%</SqlServerSystem>
+	<Applications>
+		<Application>
+		    <!-- ##### Enter application details here ##### -->
+			<ApplicationName>AWReviews</ApplicationName>
+			<BaseDirectoryPath>%BaseDirectoryPath%</BaseDirectoryPath>
+			<ApplicationDefinitionFilePath>ADF.xml</ApplicationDefinitionFilePath>
+			<Parameters>
+				<!-- These parameters are passed to the ADF file. -->
+				<Parameter>
+					<Name>_DBSystem_</Name>
+					<Value>%SqlServer%</Value>
+				</Parameter>
+				<Parameter>
+					<Name>_NSSystem_</Name>
+					<Value>%SqlServer%</Value>
+				</Parameter>
+				<Parameter>
+					<Name>_BaseDirectoryPath_</Name>
+					<Value>%BaseDirectoryPath%</Value>
+				</Parameter>
+			</Parameters>
+		</Application>
+	</Applications>
+	<DeliveryChannels>
+		<!-- ##### Enter SMTP delivery channel details here ##### -->
+		<DeliveryChannel>
+         <DeliveryChannelName>EmailChannel</DeliveryChannelName>
+         <ProtocolName>SMTP</ProtocolName>
+     <Arguments>
+         <Argument>
+            <Name>SmtpServer</Name>
+            <Value>localhost</Value>
+         </Argument>
+         <Argument>
+            <Name>BodyEncoding</Name>
+            <Value>utf-16</Value>
+         </Argument>
+      </Arguments>
+      </DeliveryChannel>
+	</DeliveryChannels>
+</NotificationServicesInstance>

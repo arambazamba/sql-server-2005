@@ -1,0 +1,6 @@
+bin\Debug\SMO.InAction.exe
+bin\Debug\SMO.InAction.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\SMO.InAction.exe
+obj\Debug\SMO.InAction.pdb
+bin\Debug\\Microsoft.SqlServer.Replication.dll

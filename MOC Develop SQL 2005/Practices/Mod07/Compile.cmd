@@ -1,0 +1,1 @@
+vbc.exe /target:library Utilities.vb /out:HelperLibrary.dll

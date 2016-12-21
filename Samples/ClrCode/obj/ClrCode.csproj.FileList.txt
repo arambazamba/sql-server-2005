@@ -1,0 +1,5 @@
+obj\Debug\ResolveAssemblyReference.cache
+bin\Debug\ClrCode.dll
+bin\Debug\ClrCode.pdb
+obj\Debug\ClrCode.dll
+obj\Debug\ClrCode.pdb

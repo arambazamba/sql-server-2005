@@ -1,0 +1,3 @@
+select dbo.GetLongDate()
+
+

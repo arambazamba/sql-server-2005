@@ -1,0 +1,31 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+UsingEndpoint
+</name>
+</assembly>
+<members>
+<member name="M:UsingEndpoint.ws.PersonEndpoint.#ctor">
+	<remarks/>
+</member><member name="E:UsingEndpoint.ws.PersonEndpoint.ListPersonCompleted">
+	<remarks/>
+</member><member name="M:UsingEndpoint.ws.PersonEndpoint.ListPerson">
+	<remarks/>
+</member><member name="M:UsingEndpoint.ws.PersonEndpoint.ListPersonAsync">
+	<remarks/>
+</member><member name="M:UsingEndpoint.ws.PersonEndpoint.ListPersonAsync(System.Object)">
+	<remarks/>
+</member><member name="M:UsingEndpoint.ws.PersonEndpoint.CancelAsync(System.Object)">
+	<remarks/>
+</member><member name="T:UsingEndpoint.ws.PersonEndpoint">
+	<remarks/>
+</member><member name="T:UsingEndpoint.ws.ListPersonCompletedEventHandler">
+	<remarks/>
+</member><member name="P:UsingEndpoint.ws.ListPersonCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:UsingEndpoint.ws.ListPersonCompletedEventArgs">
+	<remarks/>
+</member>
+</members>
+</doc>

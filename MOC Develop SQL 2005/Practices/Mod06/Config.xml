@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Microsoft Notification Services "Configuration File"-->
+
+<NotificationServicesInstance xmlns:ns="http://www.microsoft.com/MicrosoftNotificationServices/ConfigurationFileSchema" xmlns="http://www.microsoft.com/MicrosoftNotificationServices/ConfigurationFileSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.microsoft.com/MicrosoftNotificationServices/ConfigurationFileSchema http://localhost/NotificationServices/ConfigurationFileSchema.xsd">
+
+<!--Default Parameters-->
+<ParameterDefaults>
+   <Parameter>
+      <Name>BaseDirectoryPath</Name>
+      <Value>C:\Program Files\Microsoft Learning\2734\Democode\Mod06</Value>
+   </Parameter>
+   <Parameter>
+      <Name>System</Name>
+      <Value>%COMPUTERNAME%</Value>
+   </Parameter>
+</ParameterDefaults>
+
+<!--Version-->
+<Version>
+   <Major>1</Major>
+   <Minor>0</Minor>
+   <Build>0</Build>
+   <Revision>0</Revision>
+</Version>
+
+<!--History-->
+<History>
+   <CreationDate>2004-01-28</CreationDate>
+   <CreationTime>10:30:00</CreationTime>
+   <LastModifiedDate>2004-01-28</LastModifiedDate>
+   <LastModifiedTime>10:30:00</LastModifiedTime>
+</History>
+
+<!--Instance Name-->
+<InstanceName>AWInstance</InstanceName>
+
+<!--SQL Server machine name-->
+<SqlServerSystem>%System%</SqlServerSystem>
+
+<!--Database-->
+<Database>
+   <NamedFileGroup>
+      <FileGroupName>primary</FileGroupName>
+      <FileSpec>
+         <LogicalName>PrimaryFG1</LogicalName>
+         <FileName>%BaseDirectoryPath%\Primary.mdf</FileName>
+         <Size>2MB</Size>
+         <MaxSize>6MB</MaxSize>
+         <GrowthIncrement>15%</GrowthIncrement>
+      </FileSpec>
+   </NamedFileGroup>
+   <NamedFileGroup>
+      <FileGroupName>MyFileGroup</FileGroupName>
+      <FileSpec>
+         <LogicalName>MyLogicalName</LogicalName>
+         <FileName>%BaseDirectoryPath%\MyLogicalName.mdf</FileName>
+         <Size>2MB</Size>
+         <MaxSize>6MB</MaxSize>
+         <GrowthIncrement>15%</GrowthIncrement>
+      </FileSpec>
+   </NamedFileGroup>
+   <NamedFileGroup>
+      <FileGroupName>MyDefault2</FileGroupName>
+      <FileSpec>
+         <LogicalName>MyLogicalDefault2</LogicalName>
+         <FileName>%BaseDirectoryPath%\MyDefault2.mdf</FileName>
+         <Size>1MB</Size>
+         <MaxSize>3MB</MaxSize>
+         <GrowthIncrement>15%</GrowthIncrement>
+      </FileSpec>
+   </NamedFileGroup>
+</Database>
+
+<!--Applications-->
+<Applications>
+   <Application>
+      <ApplicationName>ProductApp</ApplicationName>
+      <BaseDirectoryPath>%BaseDirectoryPath%</BaseDirectoryPath>
+      <ApplicationDefinitionFilePath>ADF.xml</ApplicationDefinitionFilePath>
+      <Parameters>
+         <Parameter>
+            <Name>DBSystem</Name>
+            <Value>%System%</Value>
+         </Parameter>
+         <Parameter>
+            <Name>NSSystem</Name>
+            <Value>%System%</Value>
+         </Parameter>
+         <Parameter>
+            <Name>BaseDirectoryPath</Name>
+            <Value>%BaseDirectoryPath%</Value>
+         </Parameter>
+      </Parameters>
+   </Application>
+</Applications>
+
+<!--Protocols-->
+  <!-- This instance does not use any custom protocols -->
+
+<!--Delivery Channels-->
+<DeliveryChannels>
+   <DeliveryChannel>
+      <DeliveryChannelName>FileChannel</DeliveryChannelName>
+      <ProtocolName>File</ProtocolName>
+      <Arguments>
+         <Argument>
+            <Name>FileName</Name>
+            <Value>%BaseDirectoryPath%\Notification.txt</Value>
+         </Argument>
+      </Arguments>
+   </DeliveryChannel>
+</DeliveryChannels>
+
+<!--Argument Encryption Flag -->
+<EncryptArguments>false</EncryptArguments>
+
+</NotificationServicesInstance>

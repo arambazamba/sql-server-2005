@@ -1,0 +1,186 @@
+BODY {
+	FONT-WEIGHT: normal; FONT-SIZE: 0.8em; WORD-SPACING: normal; TEXT-TRANSFORM: none; LINE-HEIGHT: normal; FONT-FAMILY: Verdana; LETTER-SPACING: normal
+}
+H1 {
+	BORDER-RIGHT: turquoise; PADDING-RIGHT: 1px; BORDER-TOP: turquoise; PADDING-LEFT: 1px; PADDING-BOTTOM: 1px; MARGIN: 5px; BORDER-LEFT: turquoise; CURSOR: default; COLOR: white; TEXT-INDENT: 0pt; PADDING-TOP: 1px; BORDER-BOTTOM: turquoise; FONT-FAMILY: Arial, 'Arial Black', 'Trebuchet MS'; BACKGROUND-COLOR: #0000ff; TEXT-ALIGN: center
+}
+H2 {
+	COLOR: darkblue
+}
+H5 {
+	COLOR: #003366
+}
+TH {
+	COLOR: #003366
+}
+THEAD {
+	COLOR: #003366
+}
+TFOOT {
+	COLOR: #003366
+}
+H1 {
+	FONT-WEIGHT: 700; FONT-SIZE: 2em; WORD-SPACING: normal; TEXT-TRANSFORM: none; FONT-STYLE: normal; FONT-FAMILY: Verdana; LETTER-SPACING: normal; TEXT-DECORATION: none
+}
+H2 {
+	FONT-WEIGHT: 700; FONT-SIZE: 1.75em; WORD-SPACING: normal; TEXT-TRANSFORM: none; FONT-STYLE: normal; FONT-FAMILY: Verdana; LETTER-SPACING: normal; TEXT-DECORATION: none
+}
+H4 {
+	FONT-WEIGHT: 500; FONT-SIZE: 17px; WORD-SPACING: normal; TEXT-TRANSFORM: none; COLOR: darkblue; FONT-STYLE: normal; FONT-FAMILY: Verdana; LETTER-SPACING: normal; TEXT-DECORATION: none
+}
+H5 {
+	FONT-WEIGHT: 700; FONT-SIZE: 1em; WORD-SPACING: normal; TEXT-TRANSFORM: none; FONT-STYLE: normal; FONT-FAMILY: Verdana; LETTER-SPACING: normal; TEXT-DECORATION: none
+}
+DT {
+	FONT-WEIGHT: 700; FONT-SIZE: 1em; WORD-SPACING: normal; TEXT-TRANSFORM: none; FONT-STYLE: normal; FONT-FAMILY: Verdana; LETTER-SPACING: normal; TEXT-DECORATION: none
+}
+H6 {
+	FONT-WEIGHT: 700; FONT-SIZE: 0.8em; WORD-SPACING: normal; TEXT-TRANSFORM: none; FONT-STYLE: normal; FONT-FAMILY: Verdana; LETTER-SPACING: normal; TEXT-DECORATION: none
+}
+TFOOT {
+	FONT-SIZE: 1em; WORD-SPACING: normal; TEXT-TRANSFORM: none; FONT-FAMILY: Arial, Helvetica, sans-serif; LETTER-SPACING: normal
+}
+THEAD {
+	FONT-SIZE: 1em; WORD-SPACING: normal; TEXT-TRANSFORM: none; FONT-FAMILY: Arial, Helvetica, sans-serif; LETTER-SPACING: normal
+}
+TH {
+	FONT-WEIGHT: bold; FONT-SIZE: 1em; WORD-SPACING: normal; VERTICAL-ALIGN: baseline; TEXT-TRANSFORM: none; FONT-FAMILY: Arial, Helvetica, sans-serif; LETTER-SPACING: normal
+}
+A:link {
+	FONT-WEIGHT: bolder; FONT-SIZE: 0.7pc; COLOR: #3333cc; TEXT-DECORATION: none
+}
+A:visited {
+	FONT-WEIGHT: bolder; FONT-SIZE: 0.7pc; COLOR: #333399; TEXT-DECORATION: none
+}
+A:active {
+	FONT-SIZE: 0.7pc; COLOR: #333399; TEXT-DECORATION: none
+}
+A:hover {
+	FONT-SIZE: 0.7pc; COLOR: #3333cc; TEXT-DECORATION: underline
+}
+SMALL {
+	FONT-SIZE: 0.7em
+}
+BIG {
+	FONT-SIZE: 1.17em
+}
+BLOCKQUOTE {
+	FONT-FAMILY: Courier New, monospace
+}
+PRE {
+	BORDER-RIGHT: gray thin; PADDING-RIGHT: 5px; BORDER-TOP: gray thin; PADDING-LEFT: 10px; FONT-SIZE: x-small; PADDING-BOTTOM: 5px; MARGIN: 5pt; BORDER-LEFT: gray thin; PADDING-TOP: 5px; BORDER-BOTTOM: gray thin; FONT-FAMILY: monospace, 'Courier New'; BACKGROUND-COLOR: lightgrey
+}
+UL LI {
+	LIST-STYLE-TYPE: square
+}
+UL LI LI {
+	LIST-STYLE-TYPE: disc
+}
+UL LI LI LI {
+	LIST-STYLE-TYPE: circle
+}
+OL LI {
+	LIST-STYLE-TYPE: decimal
+}
+OL OL LI {
+	LIST-STYLE-TYPE: lower-alpha
+}
+OL OL OL LI {
+	LIST-STYLE-TYPE: lower-roman
+}
+IMG {
+	BORDER-RIGHT: darkblue; BORDER-TOP: darkblue; MARGIN-TOP: 5px; MARGIN-LEFT: 10px; BORDER-LEFT: darkblue; MARGIN-RIGHT: 10px; BORDER-BOTTOM: darkblue
+}
+TR.DataGrid_ItemStyle {
+	BACKGROUND-COLOR: #ffc
+}
+TR.DataGrid_AlternatingItemStyle {
+	COLOR: navy; BACKGROUND-COLOR: #fff
+}
+TR.DataGrid_HeaderStyle A {
+	COLOR: white; TEXT-DECORATION: underline
+}
+TR.DataGrid_HeaderStyle A:visited {
+	COLOR: white; TEXT-DECORATION: underline
+}
+TR.DataGrid_HeaderStyle A:hover {
+	COLOR: #9cf; TEXT-DECORATION: none
+}
+TR.DataGrid_SelectedItemStyle {
+	FONT-WEIGHT: bold; COLOR: navy; BACKGROUND-COLOR: #9cf
+}
+TR.DataGrid_HeaderStyle {
+	FONT-WEIGHT: bold; COLOR: #9c6; FONT-FAMILY: Verdana; BACKGROUND-COLOR: navy
+}
+TR.DataGrid_FooterStyle {
+	BACKGROUND-COLOR: #9cf
+}
+TR.DataGrid_PagerStyle {
+	FONT-WEIGHT: bold; COLOR: white; FONT-FAMILY: Verdana; BACKGROUND-COLOR: #ccc; TEXT-ALIGN: left
+}
+TD.FormLabel {
+	FONT-WEIGHT: bold; COLOR: navy; TEXT-ALIGN: right
+}
+TD.FormInput {
+	TEXT-ALIGN: left
+}
+TD.FormCheckBox {
+	TEXT-ALIGN: left
+}
+TD.FormInput INPUT {
+	COLOR: navy; FONT-FAMILY: Verdana; BACKGROUND-COLOR: #ffc
+}
+TD.FormInput SPAN.CheckBox INPUT {
+	BACKGROUND-COLOR: white
+}
+INPUT.Button {
+	FONT-WEIGHT: bold; CURSOR: hand; COLOR: navy; FONT-FAMILY: Verdana; BACKGROUND-COLOR: #9cf
+}
+TABLE.Form {
+	MARGIN-LEFT: 10px
+}
+SPAN.Message {
+	FONT-WEIGHT: bold; COLOR: navy
+}
+SPAN.ErrorMessage {
+	FONT-WEIGHT: bold; COLOR: red
+}
+TD.Discontinued {
+	TEXT-ALIGN: center
+}
+CODE {
+	BORDER-RIGHT: gray thin; PADDING-RIGHT: 0px; BORDER-TOP: gray thin; PADDING-LEFT: 0px; FONT-SIZE: x-small; PADDING-BOTTOM: 0px; MARGIN: 0pt; BORDER-LEFT: gray thin; PADDING-TOP: 0px; BORDER-BOTTOM: gray thin; FONT-FAMILY: monospace, 'Courier New'; BACKGROUND-COLOR: navajowhite
+}
+DIV {
+	FONT-SIZE: 0.75pc; COLOR: black; FONT-FAMILY: 'Trebuchet MS', Verdana, Arial
+}
+Header {
+	BORDER-RIGHT: gray thin; PADDING-RIGHT: 5px; BORDER-TOP: gray thin; PADDING-LEFT: 10px; FONT-SIZE: x-small; PADDING-BOTTOM: 5px; MARGIN: 5pt; BORDER-LEFT: gray thin; PADDING-TOP: 5px; BORDER-BOTTOM: gray thin; FONT-FAMILY: monospace, 'Courier New'; BACKGROUND-COLOR: navajowhite
+}
+.Footer {
+	FONT-FAMILY: 'Trebuchet MS', Verdana, Arial; BACKGROUND-COLOR: lightsteelblue
+}
+.MenuHeader {
+	FONT-SIZE: 12px; COLOR: white; FONT-FAMILY: Arial Black ,Verdana,MS Sans Serif; BACKGROUND-COLOR: steelblue
+}
+.HeaderBar {
+	FONT-SIZE: 10px; COLOR: white; FONT-FAMILY: Verdana,MS Sans Serif,Arial Black; BACKGROUND-COLOR: steelblue
+}
+.SideMenuTable {
+	BORDER-RIGHT: steelblue 1px groove; BORDER-TOP: steelblue 1px groove; BORDER-LEFT: steelblue 1px outset; BORDER-BOTTOM: steelblue 1px groove
+}
+.DGDesc {
+	FONT-SIZE: 11px; FONT-FAMILY: Verdana,MS Sans Serif, verdana,Arial
+}
+.DGBar {
+	BACKGROUND-COLOR: steelblue
+}
+.ApplicationFrame {
+	PADDING-LEFT: 10px; PADDING-TOP: 10px
+}
+.Code {
+	PADDING-BOTTOM: 5px; PADDING-TOP: 5px; BACKGROUND-COLOR: lightgrey
+}
+.text4 {
+	FONT-SIZE: 10px; FONT-FAMILY: Verdana, Arial
+}

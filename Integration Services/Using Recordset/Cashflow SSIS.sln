@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{D183A3D8-5FD8-494B-B014-37F57B35E655}") = "Extended Fuzzy", "Cashflow SSIS\Extended Fuzzy.dtproj", "{2062CA54-F487-4359-BD88-50E4C746A055}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2062CA54-F487-4359-BD88-50E4C746A055}.Development|Default.ActiveCfg = Development
+		{2062CA54-F487-4359-BD88-50E4C746A055}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

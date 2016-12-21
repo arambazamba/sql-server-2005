@@ -1,0 +1,12 @@
+PersId;Firstname;Lastname;Age;JobTitle;Salary;IsManager;ManagerLvl;ManagerDepartment
+A001;Max;Bossman;40;Developer Lead;15;TRUE;10;Development
+A002;Mario;Devman;23;Devloper Warrior;12;FALSE;;
+A003;Andi;Polman;30;Developer Warrior;12;FALSE;;
+A004;John;Rohman;20;Developer;8;FALSE;;
+A005;Hugh;Gent;22;Developer;8;FALSE;;
+A006;Harry;Domstar;23;Developer;8;FALSE;;
+A007;Michael;Brandel;23;Developer;8;FALSE;;
+A008;Edward;Rumboy;23;Developer;8;FALSE;;
+B001;Lisa;Bossman;45;Architect Lead;15;TRUE;10;Architecture
+B002;Beat;Schweman;30;Architect Warrior;12;FALSE;;
+B003;Harry;Leitenmu;34;Architect Warrior;12;FALSE;;

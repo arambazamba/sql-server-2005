@@ -1,0 +1,628 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0086)http://www.sqlservercentral.com/columnists/vkumar/introductiontodtsinsqlserver2005.asp -->
+<HTML><HEAD><TITLE>Introduction to DTS in SQL Server 2005</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META AUTHOR="Vinod Kumar">
+<META title="Introduction to DTS in SQL Server 2005">
+<META 
+DESCRIPTION="DTS was one of the true innovations in SQL Server 7. SQL Server 2000 greatly enhanced this tool and SQL Server 2005 makes it truly a programming environment, well beyond the ETL functions of DTS in SQL Server 2000. New author Vinod Kumar gives a brief introduction to this new environment.">
+<META 
+content="Microsoft SQL Server, SQL Server, SQL Server 2000, Yukon, SQL Server 7.0, SQL Server DBA" 
+name=Keywords>
+<META 
+content="Free Microsoft SQL Server articles, news, forums, scripts and FAQs." 
+name=Description>
+<META content=NOARCHIVE name=Robots>
+<META content=NOARCHIVE name=GOOGLEBOT>
+<SCRIPT language=JavaScript 
+src="Introduction to DTS in SQL Server 2005_files/sqlserverpop.js" 
+type=text/javascript></SCRIPT>
+
+<SCRIPT language=JavaScript 
+src="Introduction to DTS in SQL Server 2005_files/yellow.js" 
+type=text/javascript></SCRIPT>
+
+<META content="MSHTML 6.00.3790.218" name=GENERATOR></HEAD>
+<BODY>
+<DIV style="VISIBILITY: hidden; POSITION: absolute">/* */ </DIV><!--Start page--><LINK 
+href="Introduction to DTS in SQL Server 2005_files/default.css" type=text/css 
+rel=stylesheet><!--Start menu jscript-->
+<SCRIPT language=JavaScript 
+src="Introduction to DTS in SQL Server 2005_files/milonic_src.js" 
+type=text/javascript></SCRIPT>
+
+<SCRIPT language=JavaScript>
+if(ns4)_d.write("<scr"+"ipt language=JavaScript src=/include/mmenuns4.js><\/scr"+"ipt>");		
+  else _d.write("<scr"+"ipt language=JavaScript src=/include/mmenudom.js><\/scr"+"ipt>"); 
+</SCRIPT>
+
+<SCRIPT language=JavaScript 
+src="Introduction to DTS in SQL Server 2005_files/menu_data.js" 
+type=text/javascript></SCRIPT>
+<!--end menu jscript-->
+<TABLE id=Table1 cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD colSpan=3><!-- BEGIN Logo -->
+      <TABLE id=Table2 cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=center align=left width="15%"><A 
+            href="http://www.sqlservercentral.com/"><IMG 
+            alt="SQL Server Central Logo" 
+            src="Introduction to DTS in SQL Server 2005_files/sqlservercentral_logo.gif" 
+            border=0></A> 
+            <P></P></TD>
+          <TD vAlign=center align=middle width="85%"><!-- BEGIN Ban Man Pro Banner Code - Header -->
+            <SCRIPT language=JavaScript type=text/javascript>
+	<!--
+	var browName = navigator.appName;
+	var browDateTime = (new Date()).getTime();
+	var browVersion = parseInt(navigator.appVersion);
+	var ua=navigator.userAgent.toLowerCase();
+	var adcode='';
+	if (browName=='Netscape'){
+		if (browVersion>=5) 
+			{ document.write('<ifr'+'ame src="http://www.sqlservercentral.com/bannermanpro/banman.asp?ZoneID=3&Task=Get&Browser=NETSCAPE6&X=' + browDateTime + '" width=468 height=60 Marginwidth=0 Marginheight=0 Hspace=0 Vspace=0 Frameborder=0 Scrolling=No></ifr'+'ame>'); }
+		else if ((browVersion>=4)&&(ua.indexOf("mac")==-1))
+			{ document.write('<S'+'CRIPT src="http://www.sqlservercentral.com/bannermanpro/banman.asp?ZoneID=3&Task=Get&Browser=NETSCAPE4">');
+			document.write('</'+'scr'+'ipt>');
+			document.write(adcode); }
+		else if (browVersion>=3) 
+			{ document.write('<A HREF="http://www.sqlservercentral.com/bannermanpro/banman.asp?ZoneID=3&Task=Click&Mode=HTML&PageID=6252&RandomNumber=' + browDateTime + '" target="_new"><IMG SRC="http://www.sqlservercentral.com/bannermanpro/banman.asp?ZoneID=3&Task=Get&Mode=HTML&PageID=6252&RandomNumber=' + browDateTime + '" width="468" height="60" border="0"></A>'); } }
+	if (browName=='Microsoft Internet Explorer')
+		{ document.write('<ifr'+'ame src="http://www.sqlservercentral.com/bannermanpro/banman.asp?ZoneID=3&Task=Get&X=' + browDateTime + '" width=468 height=60 Marginwidth=0 Marginheight=0 Hspace=0 Vspace=0 Frameborder=0 Scrolling=No></ifr'+'ame>'); }
+	// --> 
+			</SCRIPT>
+            <NOSCRIPT><A 
+            href="http://www.sqlservercentral.com/bannermanpro/banman.asp?ZoneID=3&amp;Task=Click&amp;Mode=HTML&amp;PageID=6252" 
+            target=_new><IMG height=60 
+            src="Introduction to DTS in SQL Server 2005_files/blank.gif" 
+            width=468 border=0></A> </NOSCRIPT><!-- END Ban Man Pro Banner Code - Header --><BR></TD></TR></TBODY></TABLE><!-- END Logo and banner --></TD></TD>
+  <TR bgColor=#000000>
+    <TD vAlign=center colSpan=3><!--Search--><!--
+<FORM method=GET action="http://www.google.com/search" name ="srch" style="margin:0" onKeyUp="highlight(event)" onClick="highlight(event)">
+-->
+      <FORM onkeyup=highlight(event) style="MARGIN: 0px" 
+      onclick=highlight(event) name=srch 
+      action=http://www.sqlservercentral.com/search/turbo.asp method=post>
+      <TABLE id=Table3 
+      style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 8pt; BORDER-LEFT: 0px; WIDTH: 100%; BORDER-BOTTOM: 0px; BACKGROUND-COLOR: #000000" 
+      cellSpacing=0 cellPadding=0>
+        <TBODY>
+        <TR>
+          <TD style="FONT-WEIGHT: bolder; COLOR: #ffffff" vAlign=center>&nbsp; 
+            Site Search: <INPUT id=Text1 style="FONT-SIZE: 8pt" maxLength=255 
+            size=18 name=searchstring> <INPUT style="FONT-WEIGHT: bolder; FONT-SIZE: 8pt; COLOR: #ffffff; BACKGROUND-COLOR: #003399" type=submit value=" Go " name=btnG> 
+            <INPUT type=hidden value=on name=cArticles> <INPUT type=hidden 
+            value=on name=cForums> <INPUT type=hidden value=on name=cScripts> 
+            <INPUT type=hidden CHECKED value=http://www.sqlservercentral.com 
+            name=sitesearch> <!--End Search--></TD><!--Top left links-->
+          <TD vAlign=center align=right><A class=hdlinks 
+            href="http://www.sqlservercentral.com/forums/logout.aspx"><FONT 
+            color=#ffffff>Logout</A> | </FONT><A class=hdlinks 
+            href="http://www.sqlservercentral.com/store"><FONT 
+            color=#ffffff>Store</A> | </FONT><A class=hdlinks 
+            href="http://www.sqlservercentral.com/forum/policy.asp"><FONT 
+            color=#ffffff>Register</A> | </FONT><A class=hdlinks 
+            href="http://www.sqlservercentral.com/forum/active.asp"><FONT 
+            color=#ffffff>Active Threads</A> |</FONT> <A class=hdlinks 
+            href="http://www.sqlservercentral.com/other/advertise.asp"><FONT 
+            color=#ffffff>Advertise</A> |</FONT> <A class=hdlinks 
+            href="http://www.sqlservercentral.com/other/contact.asp"><FONT 
+            color=#ffffff>Contact Us</A> 
+          </FONT><!--End Top left links--></FORM></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD vAlign=top align=left width=155 bgColor=#003399 height=600>
+      <TABLE id=Table4 borderColor=#ff0000 cellSpacing=0 cellPadding=0 
+      bgColor=#003399 border=0>
+        <TBODY>
+        <TR>
+          <TD></TD>
+          <TD colSpan=3>&nbsp;</TD></TR>
+        <TR>
+          <TD height=15></TD>
+          <TD align=middle><FONT color=white size=+1><B>Site Menu</B></FONT> <!--Start left menu jscript-->
+            <SCRIPT>
+with(milonic=new menuname("Main Menu")){
+style=menuStyle;
+top=155;
+left=200;
+alwaysvisible=1;
+orientation="vertical";
+overfilter="";
+position="relative";
+aI("text=Home;url=http://www.sqlservercentral.com/;status=Back To Home Page;");
+aI("text=Resources;showmenu=Resources;");
+aI("text=Articles;showmenu=Articles;");
+aI("text=About Us;showmenu=About Us;");
+aI("text=My Account;showmenu=My Account;");
+}
+drawMenus();
+
+</SCRIPT>
+<!--end menu jscript-->
+        <TR>
+          <TD>
+            <P>&nbsp; &nbsp;</P></TD>
+          <TD colSpan=3><BR>
+            <CENTER><!-- Begin Ban Man Pro Banner Code -  Zone: SSC Book Promotions -->
+            <SCRIPT language=JAVASCRIPT>
+<!--
+var browName = navigator.appName;
+var browDateTime = (new Date()).getTime();
+var browVersion = parseInt(navigator.appVersion);
+var ua=navigator.userAgent.toLowerCase();
+var adcode='';
+if (browName=='Netscape'){
+     if (browVersion>=5) 
+          { document.write('<ifr'+'ame src="http://www.sqlservercentral.com/bannermanpro/banman.asp?ZoneID=11&Task=Get&Browser=NETSCAPE6&X=' + browDateTime + '" width=130 height=180 Marginwidth=0 Marginheight=0 Hspace=0 Vspace=0 Frameborder=0 Scrolling=No></ifr'+'ame>'); }
+     else if ((browVersion>=4)&&(ua.indexOf("mac")==-1))
+          { document.write('<S'+'CRIPT src="http://www.sqlservercentral.com/bannermanpro/banman.asp?ZoneID=11&Task=Get&Browser=NETSCAPE4">');
+          document.write('</'+'scr'+'ipt>');
+          document.write(adcode); }
+     else if (browVersion>=3) 
+          { document.write('<A HREF="http://www.sqlservercentral.com/bannermanpro/banman.asp?ZoneID=11&Task=Click&Mode=HTML&PageID=' + browDateTime + '&RandomNumber=' + browDateTime + '" target="_new"><IMG SRC="http://www.sqlservercentral.com/bannermanpro/banman.asp?ZoneID=11&Task=Get&Mode=HTML&PageID=' + browDateTime + '&RandomNumber=' + browDateTime + '" width="130" height="180" border="0"></A>'); } }
+if (browName=='Microsoft Internet Explorer')
+     { document.write('<ifr'+'ame src="http://www.sqlservercentral.com/bannermanpro/banman.asp?ZoneID=11&Task=Get&X=' + browDateTime + '" width=130 height=180 Marginwidth=0 Marginheight=0 Hspace=0 Vspace=0 Frameborder=0 Scrolling=No></ifr'+'ame>'); }
+// --> 
+</SCRIPT>
+            <NOSCRIPT><A 
+            href="http://www.sqlservercentral.com/bannermanpro/banman.asp?ZoneID=11&amp;Task=Click&amp;Mode=HTML&amp;PageID=1164" 
+            target=_new><IMG height=180 
+            src="Introduction to DTS in SQL Server 2005_files/ssc_shirt.jpg" 
+            width=130 border=0></A> </NOSCRIPT><!-- End Ban Man Pro Banner Code -  Zone: SSC Book Promotions --><A 
+            href="http://www.sqlservercentral.com/store"><FONT 
+            color=white>Support us!<BR>Visit our store! 
+            </FONT></A></CENTER><BR><BR><A 
+            href="http://www.sqlservercentral.com/rc"><IMG 
+            src="Introduction to DTS in SQL Server 2005_files/newbie.jpg" 
+            border=0></A> <!--subscribe-->
+            <FORM 
+            action=http://lists.sqlservercentral.com/subscribe/subscribe.tml 
+            method=get><FONT color=white size=1>Free Tech 
+            Newsletter</FONT><BR><FONT color=white size=1>Email address:</FONT> 
+            <INPUT size=10 name=email> <BR><INPUT style="FONT-WEIGHT: bolder; FONT-SIZE: 8pt; COLOR: #000000; BACKGROUND-COLOR: #f7f7f7" type=submit value=Subscribe name=btnG> 
+            <INPUT type=hidden value=sqlservercentral name=list> <INPUT 
+            type=hidden value=one name=confirm> <INPUT type=hidden value=T 
+            name=showconfirm> <BR><A 
+            href="http://www.sqlservercentral.com/newsletter"><FONT color=white 
+            size=-1>Newsletter Archive</FONT></A> </FORM><!--end subscribe--><!-- Begin Ban Man Pro Banner Code -  Zone: Homepage Skyscraper -->
+            <SCRIPT language=JAVASCRIPT>
+<!--
+var browName = navigator.appName;
+var browDateTime = (new Date()).getTime();
+var browVersion = parseInt(navigator.appVersion);
+var ua=navigator.userAgent.toLowerCase();
+var adcode='';
+if (browName=='Netscape'){
+     if (browVersion>=5) 
+          { document.write('<ifr'+'ame src="http://www.sqlservercentral.com/bannermanpro/banman.asp?ZoneID=4&Task=Get&Browser=NETSCAPE6&X=' + browDateTime + '" width=150 height=600 Marginwidth=0 Marginheight=0 Hspace=0 Vspace=0 Frameborder=0 Scrolling=No></ifr'+'ame>'); }
+     else if ((browVersion>=4)&&(ua.indexOf("mac")==-1))
+          { document.write('<S'+'CRIPT src="http://www.sqlservercentral.com/bannermanpro/banman.asp?ZoneID=4&Task=Get&Browser=NETSCAPE4">');
+          document.write('</'+'scr'+'ipt>');
+          document.write(adcode); }
+     else if (browVersion>=3) 
+          { document.write('<A HREF="http://www.sqlservercentral.com/bannermanpro/banman.asp?ZoneID=4&Task=Click&Mode=HTML&PageID=96549&RandomNumber=' + browDateTime + '" target="_new"><IMG SRC="http://www.sqlservercentral.com/bannermanpro/banman.asp?ZoneID=4&Task=Get&Mode=HTML&PageID=96549&RandomNumber=' + browDateTime + '" width="130" height="600" border="0"></A>'); } }
+if (browName=='Microsoft Internet Explorer')
+     { document.write('<ifr'+'ame src="http://www.sqlservercentral.com/bannermanpro/banman.asp?ZoneID=4&Task=Get&X=' + browDateTime + '" width=130 height=600 Marginwidth=0 Marginheight=0 Hspace=0 Vspace=0 Frameborder=0 Scrolling=No></ifr'+'ame>'); }
+// --> 
+										</SCRIPT>
+            <NOSCRIPT><A 
+            href="http://www.sqlservercentral.com/bannermanpro/banman.asp?ZoneID=4&amp;Task=Click&amp;Mode=HTML&amp;PageID=96549" 
+            target=_new><IMG height=600 
+            src="F:\Alexander\Unterlagen Samples\SQL 2005\DTS\Introduction to DTS in SQL Server 2005_files\blank(1).gif" 
+            width=130 border=0></A> </NOSCRIPT><!-- End Ban Man Pro Banner Code -  Zone: Homepage Skyscraper -->
+            <P></P><FONT color=white>Get <A 
+            href="http://www.sqlservercentral.com/forums"><FONT color=white>SQL 
+            Server</FONT></A> Help</FONT> <BR><BR><A 
+            href="http://sqlservercentral.tradepub.com/"><IMG 
+            src="Introduction to DTS in SQL Server 2005_files/120x30_D.gif" 
+            border=0></A> </TD></TD></TR></TBODY></TABLE></TD><!--Add some padding-->
+    <TD vAlign=top align=left width=2><!--End padding--></TD><!--Begin meat of content here-->
+    <TD vAlign=top align=left><BR>
+      <CENTER>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD vAlign=top><!--Site sponsorship start-->
+            <TABLE id=Table1 cellSpacing=1 cellPadding=2 width=505 bgColor=white 
+            border=1><FONT face="arial, helvetica, san serif" size=1>Site 
+              Sponsored by</FONT> 
+              <TBODY>
+              <TR>
+                <TD borderColor=white>
+                  <OBJECT id=popup_06 
+                  codeBase=http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=4,0,0,0 
+                  height=44 width=129 
+                  classid=clsid:D27CDB6E-AE6D-11cf-96B8-444553540000><PARAM NAME="movie" VALUE="http://www.sqlservercentral.com/bannermanpro/swappinganimation_02.swf"><PARAM NAME="menu" VALUE="false"><PARAM NAME="quality" VALUE="high">
+                   <EMBED 
+                  src="http://www.sqlservercentral.com/bannermanpro/swappinganimation_02.swf" 
+                  menu=false quality=high swLiveConnect=FALSE WIDTH=129 
+                  HEIGHT=44 TYPE="application/x-shockwave-flash" 
+                  PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"></EMBED></OBJECT></TD>
+                <TD borderColor=white><FONT face="arial, helvetica, san serif" 
+                  size=2><FONT size=-1><FONT face=Verdana><STRONG 
+                  style="COLOR: red">The fastest, most secure&nbsp;way to backup 
+                  your&nbsp; ERP databases.&nbsp; </STRONG>Visit <A 
+                  style="COLOR: blue" 
+                  href="http://www.imceda.com/">http://www.imceda.com/</A> to 
+                  download&nbsp;a 
+                  free&nbsp;evaluation.</FONT></FONT></FONT>&nbsp; 
+              </TD></FONT></TR></TBODY></TABLE><!--Site sponsorship end--></TD>
+          <TD vAlign=top width=10></TD>
+          <TD vAlign=top></TD></TD></TR></TBODY></TABLE></CENTER>
+      <H1>Introduction to DTS in SQL Server 2005</H1><!-- 9/3/04 jsj
+  Added table around article header. Includes links to book if appropriate. Also shows summary if you
+  are not logged in, i.e. session("memberid") is blank.
+-->
+      <TABLE width="100%">
+        <TBODY>
+        <TR>
+          <TD vAlign=top>Regular Columnist : Vinod&nbsp;Kumar <BR>Posted: 
+            09/27/2004 <BR><A 
+            href="http://www.sqlservercentral.com/columnists/vkumar/">More 
+            Articles From This Columnist</A> <BR><I><B>4117 Reads</B></I> <BR><A 
+            href="http://www.sqlservercentral.com/columnists/vkumar/introductiontodtsinsqlserver2005_printversion.asp"><IMG 
+            src="Introduction to DTS in SQL Server 2005_files/print.gif" 
+            border=0></A> <BR><A 
+            href="http://www.sqlservercentral.com/memberservices/briefcase.asp?addnewpage=Y&amp;pageid=1486&amp;pagetype=1"><STRONG><EM>Add 
+            Article to Your Virtual Briefcase</EM></STRONG></A> &nbsp;<A 
+            href="http://www.sqlservercentral.com/memberservices/whatisbriefcase.asp" 
+            target="NEW WINDOW"><FONT size=-2>(What is 
+            this?)</FONT></A><BR><BR><FONT face="Verdana, Arial, Helvetica" 
+            size=2><B>Article Rating </B><IMG height=15 
+            src="Introduction to DTS in SQL Server 2005_files/bullet_yellow_star.gif" 
+            width=15> <IMG height=15 
+            src="Introduction to DTS in SQL Server 2005_files/bullet_yellow_star.gif" 
+            width=15> <IMG height=15 
+            src="Introduction to DTS in SQL Server 2005_files/bullet_yellow_star.gif" 
+            width=15> <IMG height=15 
+            src="Introduction to DTS in SQL Server 2005_files/bullet_yellow_star.gif" 
+            width=15> &nbsp;&nbsp;Total number of votes [13] </FONT></TD>
+          <TD vAlign=top>&nbsp; </TD></TR></TBODY></TABLE>
+      <HR>
+<!--Read from database--><!--Site sponsorship start-->
+      <TABLE id=Table1 cellSpacing=1 cellPadding=2 width="22%" align=right 
+      bgColor=oldlace border=1><FONT face="arial, helvetica, san serif" 
+        size=1><I>This Content Sponsored by:</I></FONT> 
+        <TBODY>
+        <TR>
+          <TD borderColor=white>
+            <SCRIPT type=text/javascript><!--
+google_ad_client = "pub-1142015533970085";
+google_ad_width = 250;
+google_ad_height = 250;
+google_ad_format = "250x250_as";
+google_ad_channel ="";
+//--></SCRIPT>
+
+            <SCRIPT 
+            src="Introduction to DTS in SQL Server 2005_files/show_ads.js" 
+            type=text/javascript>
+</SCRIPT>
+          </TD></TR></TBODY></TABLE><!--Site sponsorship end-->
+      <H3 class=section>Introduction</H3>
+      <P>One of the key features introduced in SQL Server 2005 is the new DTS 
+      platform. With the new release of SQL Server Beta 2, you must be eager to 
+      get your hands dirty on this new amazing platform. This product does bring 
+      in a new perspective and new thinking the way we used to work with DTS. 
+      Most of the DTS architecture has undergone dramatic changes. In this 
+      article I will walk through an step-by-step easy uploading of a given 
+      datafile into SQL Server. This new version of DTS does go beyond the ETL 
+      (Extract, Transform, Load) tools definition. You can orchestrate your code 
+      and create an workflow with the same. DTS in Yukon is more manageable, 
+      usable and more mature from its previous version. </P>
+      <H3 class=section>Understanding BI Project</H3>
+      <P>To start creating the project. Go to Start-&gt;All Programs-&gt;SQL 
+      Server 2005-&gt;Select Business Intelligent Development Studio. This will 
+      open up an environment that is very much familiar to all developers, VS 
+      Studio IDE. Press Crtl+Shift+N or Use File-&gt;New-&gt;New Project option. 
+      This will list all the business intelligent projects available. The BI 
+      "Workbench" doesn't require a direct connection to the SQL Server to 
+      design packages, nor does it require a connection to save work. Since this 
+      is an IDE that looks feels and does almost most of the VS Studio 
+      environment. It also allows us to integrate our DTS Projects with version 
+      control software like VSS. </P><IMG id=Image1 
+      src="Introduction to DTS in SQL Server 2005_files/DTS1_Image1.jpg" 
+      border=0> 
+      <P>For our exercise we will select Data Transformation Project as selected 
+      in the diagram above. After setting our project directory and the project 
+      name properly click on OK. This will create the necessary directory 
+      structure and all the project related files. The Solution explorer will 
+      open up with a default DTS Package. We will change our package name to 
+      your custom needs. </P><IMG id=Image2 
+      src="Introduction to DTS in SQL Server 2005_files/DTS1_Image2.jpg" 
+      border=0> 
+      <P>Most of the basic functionality and the explanation of various tasks 
+      can be found from my <A 
+      href="http://www.extremeexperts.com/sql/Yukon/YukonDTS.aspx" 
+      target=blank>first DTS article at my website</A>. Selecting the DTS 
+      Package we are presented in the main application frame. And looking at the 
+      Design view we find interesting tabs.</P>
+      <OL><B>Control Flow</B>: Gives a logical window to look at tasks. The 
+        concept is same to what it used to look in the DTS 2000 world too. This 
+        window contains some interesting new tasks, constraints and looping 
+        operators like the FOR Loop, FOR EACH Loop, SEQUENCE etc. This is the 
+        main task window. All the related control flow tasks are presented in 
+        the next task frame. Some of the interesting events are:</OL>
+      <UL>Looping Containers</UL>
+      <UL>ActiveX Script Task</UL>
+      <UL>Bulk Insert task</UL>
+      <UL>Data flow task</UL>
+      <UL>Execute DTS Package</UL>
+      <UL>File System Task</UL>
+      <UL>MSMQ Task</UL>
+      <UL>Send Mail task</UL>
+      <OL><B>Data Flow</B>: The Data Flow designer manages all of the data 
+        movement and transformations between a source and target. In order to 
+        include data flow within your package, you must manually add a Data Flow 
+        task to the Control Flow designer or let DTS do it for you when you open 
+        the Data Flow designer window. Each projects can have multiple Data Flow 
+        tasks and each tasks can have a source and destination activities. There 
+        can be various transformations possible like the Aggregation, Derived 
+        Columns are possible. This can also be considered as a aggregation of 
+        logical tasks.</OL>
+      <OL><B>Event Handlers</B>: This is an interface through which the task 
+        raises events and exposes the opportunity for events to be handled. DTS 
+        events for every executable container task within the package's runtime 
+        environment, are exposed in the user interface with each event having 
+        the possibility of its own event handler design surface for implementing 
+        compound work flows. Some event handlers provided are: OnCustomEvent, 
+        OnError, OnExecStatusChanged, OnNMProgress, OnPostExecute, 
+        OnPostValidate, OnPreExecute, OnPreValidate, OnProgress. All the 
+        parameters available for the present package are displayed in this 
+        section.</OL>
+      <OL><B>Package Explorer</B>: This gives us an interface through which we 
+        can execute the package and view the health of the running Package. It 
+        gives you statistics of the various pipelines available, how they were 
+        executed and how they were synchronized. The total execution time is 
+        also monitored through this window.</OL>
+      <H3 class=section>Creating our project</H3>
+      <P></P>In this demo our requirement is to upload windows an event viewer 
+      data into SQL Server tables. This might sound very simple. But let's see 
+      how we can make this requirement interesting. A simple visual check at the 
+      datafile we can see there are multiple types available. A typical datafile 
+      looks like: <PRE class=code>Type,Date,Time,Source,Category,Event,User,Computer
+Information,05-Aug-04,8:14:39 AM,DataTransformationServices90,None,12289,N/A,VINODKNET01
+Success Audit,05-Aug-04,8:14:39 AM,MSSQLSERVER,Logon ,18453,vinodk,VINODKNET01
+Error,05-Aug-04,8:13:29 AM,DataTransformationServices90,None,12291,N/A,VINODKNET01
+Success Audit,05-Aug-04,8:13:28 AM,MSSQLSERVER,Logon ,18453,vinodk,VINODKNET01
+Information,05-Aug-04,8:13:28 AM,DataTransformationServices90,None,12288,N/A,VINODKNET01
+Information,05-Aug-04,6:15:00 AM,MSDTC,TM,4097,N/A,VINODKNET01
+Error,05-Aug-04,6:15:00 AM,Userinit,None,1000,N/A,VINODKNET01
+Error,05-Aug-04,6:15:00 AM,Userenv,None,1054,SYSTEM,VINODKNET01
+Success Audit,05-Aug-04,1:27:31 AM,MSSQLSERVER,Logon ,18453,vinodk,VINODKNET01
+Error,05-Aug-04,1:24:04 AM,DataTransformationServices90,None,12291,N/A,VINODKNET01
+Warning,14-Jul-04,7:24:46 PM,WinMgmt,None,62,N/A,VINODKNET01
+</PRE>As said before we can find there are different types like Success, 
+      Information, Warnings, Error and so on. In this DTS Package we will try to 
+      upload each eventlog source type into respective tables of our choice. 
+      I've also added the <A 
+      href="http://www.sqlservercentral.com/columnists/vkumar/SampleDataFile.txt" 
+      target=_blank>sample datafile</A> for your reference. Having laid our 
+      foundation in understanding our datafile structure. Let's take a look at 
+      the tables these data would get into. 
+      <UL>Aggevnt - Get a distinct count of the source available in the 
+        datafile</UL>
+      <UL>ErrorEvents - All error events are loaded into this table</UL>
+      <UL>Evntlog - All information events are loaded into this table</UL>
+      <UL>FailureEvents - All failure events are loaded into this table</UL>
+      <UL>SuccessAuditEvents - All success events are loaded into this 
+table</UL>
+      <UL>WarningEvents - All warning events are loaded into this table</UL>
+      <P>For the first step in our control flow window we will truncate all the 
+      above tables before the data is inserted into the table. Drag and drop 
+      "Execute SQL Task" into the orchestration frame. You will find a "red 
+      cross", this represents an unavailability of database connection to 
+      execute the database task. Select the Connection information or create 
+      one. And last but not the least we need to provide the SQL Statement. 
+      After specifying the configuration our final SQL Task window would look 
+      like:</P><IMG id=Image3 
+      src="Introduction to DTS in SQL Server 2005_files/DTS1_Image3.jpg" 
+      border=0> 
+      <P>Next drag and drop a Data flow task onto the Control flow window. And 
+      then connect the output of the Execute task onto the Data flow task. Now 
+      the final Control flow task would look like: </P><IMG id=Image4 
+      src="Introduction to DTS in SQL Server 2005_files/DTS1_Image4.jpg" 
+      border=0> 
+      <P>Double click on the data flow task. You will be presented with the Data 
+      flow frame window. As said earlier this is the place where we would 
+      logically group tasks and perform units of work. And this is the window 
+      where we are going to perform the actual designing of our DTS Package. The 
+      first task is to get the input datafile into our DTS Package. So drag and 
+      drop the "Raw File Source" as the input. Double click on the package and 
+      give proper connection information to the flat file. The columns tab after 
+      the connection information would look like: </P><IMG id=Image5 
+      src="Introduction to DTS in SQL Server 2005_files/DTS1_Image5.jpg" 
+      border=0> 
+      <P>Taking a closer look at the requirement we can see that we have to get 
+      the distinct count of the Source and at the same time have to get the file 
+      data into our tables. For this task we need to use a Multicast task. The 
+      multicast transformation implements the functionality to distribute a 
+      single inbound dataset amongst several outputs. The benefits of the 
+      multicast are apparent when needing to push the identical dataset to two 
+      or more destinations. For our requirement we need to pipe it to a 
+      aggregate function and a character map function. The aggregate data flow 
+      transform allows for the aggregation of input data from a data stream to 
+      multiple aggregation outputs at varying aggregation grouping levels. A 
+      typical aggregate output can be as Sum, Count, Average, Maximum, Minimum 
+      etc. We can also group by input columns like: </P><IMG id=Image6 
+      src="Introduction to DTS in SQL Server 2005_files/DTS1_Image6.jpg" 
+      border=0> 
+      <P>And the character mapping allows us to change the characters input and 
+      in-line activity or can form as a new column to the input stream. For this 
+      basic task, we will change the input type information to upper case. This 
+      will be used for our bifurcation process. Hence the character mapping data 
+      will look like: </P><IMG id=Image8 
+      src="Introduction to DTS in SQL Server 2005_files/DTS1_Image8.jpg" 
+      border=0> 
+      <P>Finishing our first stage, let us look how our Data flow looks. It 
+      surely looks cool !!! But I assure you the final output would look even 
+      more beautiful. </P><IMG id=Image7 
+      src="Introduction to DTS in SQL Server 2005_files/DTS1_Image7.jpg" 
+      border=0> 
+      <P>Our next step is to load all the data into SQL Server. For the same 
+      just drag and drop an OLE DB Destination. The OLE DB destination is one of 
+      the destination types found in the DTS data flow architecture. This 
+      destination allows for the connectivity with destinations that are OLE DB 
+      compliant. Since SQL Server is also OLE DB Compliant this task can be used 
+      effectively. Just connect the input flow and give the connection 
+      information. We are all set to play with the column mapping tab and 
+      finally the data gets into SQL Server. Typical OLE DB Destination 
+      connection information looks like: </P><IMG id=Image9 
+      src="Introduction to DTS in SQL Server 2005_files/DTS1_Image9.jpg" 
+      border=0> 
+      <P>Now we do have accomplished one half of our requirement. The other 
+      requirement is to insert data from the datafile into corresponding tables. 
+      For this we need to use an un-conditional split operation. The conditional 
+      split transformation handles the re-direction of data based upon 
+      conditions being met. These conditional expressions can be driven by 
+      columnar values or variables that are within scope for the data flow task 
+      and the transform. And for our requirement we can take a look at the 
+      conditional-split operation. </P><IMG id=Image10 
+      src="Introduction to DTS in SQL Server 2005_files/DTS1_Image10.jpg" 
+      border=0> 
+      <P>Hereafter we are on course to insert data into our corresponding tables 
+      using OLE DB Destination. The final finished product surely looks graceful 
+      and more elegant !!! </P><IMG id=Image11 
+      src="Introduction to DTS in SQL Server 2005_files/DTS1_Image11.jpg" 
+      border=0> 
+      <P>If you wish to execute a package, you can click on the play icon on the 
+      toolbar, press F5, or choose Debug -&gt; Start from the menu. This puts 
+      the design environment into execution mode, opens several new windows, 
+      enables several new menu and toolbar items, and begins to execute the 
+      package. We can also optionally debug the package using the watch window. 
+      Just double click on the connecting arrows and set some watch variables 
+      and re-execute the package. Let's take a look at the number of rows loaded 
+      into the system. </P><IMG id=Image12 
+      src="Introduction to DTS in SQL Server 2005_files/DTS1_Image12.jpg" 
+      border=0> 
+      <P>With the minimum config and dry run on my personal laptop. I was able 
+      to run this package and load data into Yukon in less than 1.5 seconds. And 
+      I am amazed with the improvements DTS Pipelines have introduced. </P>
+      <H3 class=section>Conclusions</H3>
+      <P>I think in this article we have taken a sneak preview to what Yukon DTS 
+      is to offer us. I have been playing with this new DTS architecture for 
+      sometime now and I feel DTS has given a fresh look and feel to this ETL 
+      tool. I like DTS on its usability fronts and with a final word is Yukon 
+      rocks !!! </P>
+      <P>You can download the SQL code <A 
+      href="http://www.sqlservercentral.com/columnists/vkumar/SQLCentralDTSDBCreate.sql">here</A>. 
+      </P><BR><SPAN id=vcr style="POSITION: relative; HEIGHT: 5mm" 
+      NAME="vcr"><IMG 
+      src="Introduction to DTS in SQL Server 2005_files/btn_vcr_top.gif" 
+      border=0><IMG 
+      src="Introduction to DTS in SQL Server 2005_files/btn_vcr_prev.gif" 
+      border=0><IMG 
+      src="Introduction to DTS in SQL Server 2005_files/btn_vcr_next.gif" 
+      border=0><IMG 
+      src="Introduction to DTS in SQL Server 2005_files/btn_vcr_bot.gif" 
+      border=0></SPAN><SPAN id=tabs 
+      style="FONT-SIZE: 10pt; LEFT: 0mm; OVERFLOW: hidden; WIDTH: 660px; COLOR: navy; FONT-FAMILY: Verdana; POSITION: relative; TOP: 0mm; HEIGHT: 5mm; BACKGROUND-COLOR: white; TEXT-ALIGN: left" 
+      NAME="tabs" nowrap><IMG 
+      src="Introduction to DTS in SQL Server 2005_files/begin_left_white.gif" 
+      border=0><A 
+      href="http://www.sqlservercentral.com/columnists/vkumar/introductiontodtsinsqlserver2005.asp?Tab=1"><IMG 
+      src="Introduction to DTS in SQL Server 2005_files/white_square.gif" 
+      border=0></A><IMG 
+      src="Introduction to DTS in SQL Server 2005_files/mid_left_white.gif" 
+      border=0><A href="http://www.sqlservercentral.com/columnists/vkumar/"><IMG 
+      src="Introduction to DTS in SQL Server 2005_files/green_tab.gif" 
+      border=0></A><IMG 
+      src="Introduction to DTS in SQL Server 2005_files/mid_right.gif" 
+      border=0><A 
+      href="http://www.sqlservercentral.com/forum/reviews.asp?CAT_ID=7&amp;FORUM_ID=188&amp;TOPIC_ID=133934&amp;type=2&amp;article=1486"><IMG 
+      src="Introduction to DTS in SQL Server 2005_files/red_tab.gif" 
+      border=0></A><IMG 
+      src="Introduction to DTS in SQL Server 2005_files/end_right.gif" 
+      border=0></SPAN><BR><SPAN 
+      style="FONT-SIZE: 8pt; LEFT: 16mm; COLOR: navy; FONT-FAMILY: Arial; POSITION: relative; TOP: -5mm"><A 
+      style="FONT: 8pt arial; TEXT-DECORATION: none" 
+      href="http://www.sqlservercentral.com/columnists/vkumar/introductiontodtsinsqlserver2005.asp?Tab=1">Pg.01</A><IMG 
+      src="Introduction to DTS in SQL Server 2005_files/space.gif"><A 
+      style="FONT: 8pt arial; TEXT-DECORATION: none" 
+      href="http://www.sqlservercentral.com/columnists/vkumar/">Authors 
+      Home</A><IMG 
+      src="Introduction to DTS in SQL Server 2005_files/space.gif"><A 
+      style="FONT: 8pt arial; TEXT-DECORATION: none" 
+      href="http://www.sqlservercentral.com/forum/reviews.asp?CAT_ID=7&amp;FORUM_ID=188&amp;TOPIC_ID=133934&amp;type=2&amp;article=1486">Your 
+      Opinion</A><IMG 
+      src="Introduction to DTS in SQL Server 2005_files/space.gif"></SPAN> <BR><!--INCLUDE\VoteArticle.inc--><!--Article ID:  1486--><!--Member ID:  194838--><!--Article Type:  2--><!-- Query: [spVoteCheckArticle 1486, 2, 194838] -->
+      <FORM id=form1 name=form1 
+      action=http://www.sqlservercentral.com/forum/reviews.asp?CAT_ID=7&amp;FORUM_ID=188&amp;TOPIC_ID=133934&amp;type=2&amp;article=1486 
+      method=post><B>Rate This : </B><SELECT id=select1 name=Rating> <OPTION 
+        value=5 selected>Excellent!</OPTION> <OPTION value=4>Good</OPTION> 
+        <OPTION value=3>Average</OPTION> <OPTION value=2>Poor</OPTION> <OPTION 
+        value=1>A Dud!</OPTION></SELECT> <INPUT type=hidden value=yes name=vote> 
+      <INPUT type=hidden name=articleid> <INPUT id=submit1 type=submit value=Vote name=submit1> </FORM>
+      <TABLE width="100%">
+        <TBODY>
+        <TR>
+          <TD bgColor=#b4b4b4 colSpan=2 height=1></TD></TD>
+        <TR>
+          <TD 
+bgColor=#f7f7f7><BR></TD></TR></TBODY></TABLE></TD></TD></TR></TBODY></TABLE></TD></TR></TABLE><BR></TD></TR></TBODY></TABLE>
+<TABLE id=Table5 height=66 cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD width="100%" bgColor=#ffffff height=1></TD></TR>
+  <TR>
+    <TD width="100%" bgColor=#000000 height=9></TD></TR>
+  <TR>
+    <TD width="100%" bgColor=#ffffff height=9></TD></TR>
+  <TR>
+    <TD vAlign=top width="100%" bgColor=#ffffff height=47>
+      <TABLE id=Table6 cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD align=middle colSpan=2><!-- Begin Ban Man Pro Banner Code -  Zone: Footer Banner -->
+            <SCRIPT language=JAVASCRIPT>
+<!--
+var browName = navigator.appName;
+var browDateTime = (new Date()).getTime();
+var browVersion = parseInt(navigator.appVersion);
+var ua=navigator.userAgent.toLowerCase();
+var adcode='';
+if (browName=='Netscape'){
+     if (browVersion>=5) 
+          { document.write('<ifr'+'ame src="http://www.sqlservercentral.com/bannermanpro/banman.asp?ZoneID=2&Task=Get&Browser=NETSCAPE6&X=' + browDateTime + '" width=468 height=60 Marginwidth=0 Marginheight=0 Hspace=0 Vspace=0 Frameborder=0 Scrolling=No></ifr'+'ame>'); }
+     else if ((browVersion>=4)&&(ua.indexOf("mac")==-1))
+          { document.write('<S'+'CRIPT src="http://www.sqlservercentral.com/bannermanpro/banman.asp?ZoneID=2&Task=Get&Browser=NETSCAPE4">');
+          document.write('</'+'scr'+'ipt>');
+          document.write(adcode); }
+     else if (browVersion>=3) 
+          { document.write('<A HREF="http://www.sqlservercentral.com/bannermanpro/banman.asp?ZoneID=2&Task=Click&Mode=HTML&PageID=59176&RandomNumber=' + browDateTime + '" target="_new"><IMG SRC="http://www.sqlservercentral.com/bannermanpro/banman.asp?ZoneID=2&Task=Get&Mode=HTML&PageID=59176&RandomNumber=' + browDateTime + '" width="468" height="60" border="0"></A>'); } }
+if (browName=='Microsoft Internet Explorer')
+     { document.write('<ifr'+'ame src="http://www.sqlservercentral.com/bannermanpro/banman.asp?ZoneID=2&Task=Get&X=' + browDateTime + '" width=468 height=60 Marginwidth=0 Marginheight=0 Hspace=0 Vspace=0 Frameborder=0 Scrolling=No></ifr'+'ame>'); }
+// --> 
+</SCRIPT>
+            <NOSCRIPT><A 
+            href="http://www.sqlservercentral.com/bannermanpro/banman.asp?ZoneID=2&amp;Task=Click&amp;Mode=HTML&amp;PageID=59176" 
+            target=_new><IMG height=60 
+            src="Introduction to DTS in SQL Server 2005_files/SQLPackager468x60.gif" 
+            width=468 border=0></A> </NOSCRIPT><!-- End Ban Man Pro Banner Code -  Zone: Footer Banner --></TD>
+          <TD width="10%"></TD>
+          <TD align=right><!-- Start of StatCounter Code -->
+            <SCRIPT language=javascript type=text/javascript>
+var sc_project=257602; 
+var sc_invisible=1; 
+</SCRIPT>
+
+            <SCRIPT language=javascript 
+            src="Introduction to DTS in SQL Server 2005_files/counter.js" 
+            type=text/javascript></SCRIPT>
+            <NOSCRIPT><A href="http://www.statcounter.com/" target=_blank><IMG 
+            alt="website traffic analysis" 
+            src="Introduction to DTS in SQL Server 2005_files/counter.gif" 
+            border=0></A> 
+        </NOSCRIPT><!-- End of StatCounter Code --></TD></TD></TR></TBODY></TABLE>
+      <CENTER></CENTER></TD>
+    <TD></TD></TR>
+  <TR>
+    <TD class=small align=middle colSpan=2><BR>Copyright © 2002-2003 Central 
+      Publishing Group. All Rights Reserved. <BR></TD></TR>
+  <TR>
+    <TD align=left></TD>
+    <TD align=right><SPAN class=verysmall 
+  id=uc_FooterX_lblDt></SPAN></TD></TR></TBODY></TABLE></TD></TR></TABLE></BODY></HTML>

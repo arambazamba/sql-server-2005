@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "C:\Program Files\Microsoft Learning\2733\Democode\Mod03\", "C:\Program Files\Microsoft Learning\2733\Democode\Mod03\", "{05027F7F-B858-48FA-ACB8-869A0FFAB602}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05027F7F-B858-48FA-ACB8-869A0FFAB602}.Debug|.NET.ActiveCfg = Debug|.NET
+		{05027F7F-B858-48FA-ACB8-869A0FFAB602}.Debug|.NET.Build.0 = Debug|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

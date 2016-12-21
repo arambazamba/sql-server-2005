@@ -1,0 +1,21 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "C:\Program Files\Microsoft Learning\2734\LabFiles\Lab06\Solution\AWSiteCS\", "C:\Program Files\Microsoft Learning\2734\LabFiles\Lab06\Solution\AWSiteCS\", "{45BAB9DC-C255-4F5B-B4E3-E2C2C8A5E6C7}"
+	ProjectSection(WebsiteProperties) = preProject
+		Frontpage = false
+		VWDPort = 2052
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{45BAB9DC-C255-4F5B-B4E3-E2C2C8A5E6C7}.Debug|.NET.ActiveCfg = Debug|.NET
+		{45BAB9DC-C255-4F5B-B4E3-E2C2C8A5E6C7}.Debug|.NET.Build.0 = Debug|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

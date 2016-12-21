@@ -1,0 +1,12 @@
+Type,Date,Time,Source,Category,Event,User,Computer
+Information,05-Aug-04,8:14:39 AM,DataTransformationServices90,None,12289,N/A,VINODKNET01
+Success Audit,05-Aug-04,8:14:39 AM,MSSQLSERVER,Logon ,18453,vinodk,VINODKNET01
+Error,05-Aug-04,8:13:29 AM,DataTransformationServices90,None,12291,N/A,VINODKNET01
+Success Audit,05-Aug-04,8:13:28 AM,MSSQLSERVER,Logon ,18453,vinodk,VINODKNET01
+Information,05-Aug-04,8:13:28 AM,DataTransformationServices90,None,12288,N/A,VINODKNET01
+Information,05-Aug-04,6:15:00 AM,MSDTC,TM,4097,N/A,VINODKNET01
+Error,05-Aug-04,6:15:00 AM,Userinit,None,1000,N/A,VINODKNET01
+Error,05-Aug-04,6:15:00 AM,Userenv,None,1054,SYSTEM,VINODKNET01
+Success Audit,05-Aug-04,1:27:31 AM,MSSQLSERVER,Logon ,18453,vinodk,VINODKNET01
+Error,05-Aug-04,1:24:04 AM,DataTransformationServices90,None,12291,N/A,VINODKNET01
+Warning,14-Jul-04,7:24:46 PM,WinMgmt,None,62,N/A,VINODKNET01

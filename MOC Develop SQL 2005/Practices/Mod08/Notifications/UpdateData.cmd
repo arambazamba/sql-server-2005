@@ -1,0 +1,1 @@
+sqlcmd -d AdventureWorks -Q "SET QUOTED_IDENTIFIER ON; UPDATE Production.Product SET ListPrice = ListPrice * 2 WHERE ProductID = 2"

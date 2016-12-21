@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.microsoft.com/MicrosoftNotificationServices/ApplicationDefinitionFileSchema">
+	<Version>
+		<Major>1</Major>
+		<Minor>0</Minor>
+		<Build>0</Build>
+		<Revision>0</Revision>
+	</Version>
+	<History>
+		<CreationDate>2004-01-28</CreationDate>
+		<CreationTime>10:35:00</CreationTime>
+		<LastModifiedDate>2004-01-28</LastModifiedDate>
+		<LastModifiedTime>10:35:00</LastModifiedTime>
+	</History>
+	<EventClasses>
+		<EventClass>
+			<EventClassName>NewProductEvent</EventClassName>
+			<Schema>
+				<Field>
+					<FieldName>ProductId</FieldName>
+					<FieldType>int</FieldType>
+					<FieldTypeMods>not null</FieldTypeMods>
+				</Field>
+				<Field>
+					<FieldName>ProductName</FieldName>
+					<FieldType>nVarchar(50)</FieldType>
+					<FieldTypeMods>not null</FieldTypeMods>
+				</Field>
+                                <Field>
+					<FieldName>CategoryId</FieldName>
+					<FieldType>int</FieldType>
+					<FieldTypeMods>not null</FieldTypeMods>
+				</Field>
+			</Schema>
+			<IndexSqlSchema>
+				<SqlStatement>CREATE INDEX NewProductEventIndex ON NewProductEvent ( ProductId)</SqlStatement>
+			</IndexSqlSchema>
+			<ChronicleRule>
+				<RuleName>NewProductEventChronRule</RuleName>
+				<Action>
+				INSERT INTO NewProductEventChron (ProductId, ProductName)
+				SELECT e.ProductId, e.ProductName
+				FROM NewProductEvent e
+				WHERE	e.ProductId 
+				NOT IN (SELECT ProductId from NewProductEventChron)
+				</Action>
+				<ActionTimeout>P0DT0H10M10S</ActionTimeout>
+			</ChronicleRule>
+			<Chronicles>
+				<Chronicle>
+					<ChronicleName>NewProductEventChron</ChronicleName>
+					<SqlSchema>
+						<SqlStatement>
+						IF EXISTS(
+						SELECT name 
+						FROM dbo.sysobjects 
+						WHERE name = 'NewProductEventChron')
+						DROP TABLE dbo.NewProductEventChron
+						CREATE TABLE NewProductEventChron
+						(
+							[ProductId] int,
+							[ProductName] nVarchar(50)
+						)
+						</SqlStatement>
+					</SqlSchema>
+				</Chronicle>
+			</Chronicles>
+		</EventClass>
+	</EventClasses>
+	<SubscriptionClasses>
+		<SubscriptionClass>
+			<SubscriptionClassName>NewProductSubscription</SubscriptionClassName>
+			<Schema>
+				<Field>
+					<FieldName>DeviceName</FieldName>
+					<FieldType>nvarchar(255)</FieldType>
+					<FieldTypeMods>not null</FieldTypeMods>
+				</Field>
+				<Field>
+					<FieldName>SubscriberLocale</FieldName>
+					<FieldType>nvarchar(10)</FieldType>
+					<FieldTypeMods>not null</FieldTypeMods>
+				</Field>
+				<Field>
+					<FieldName>CategoryId</FieldName>
+					<FieldType>int</FieldType>
+					<FieldTypeMods>not null</FieldTypeMods>
+				</Field>
+			</Schema>
+			<EventRules>
+				<EventRule>
+					<RuleName>NewProductSubscriptionEventRule</RuleName>
+					<Action>
+					INSERT INTO NewProductNotification
+                                        ( SubscriberId,
+                                          DeviceName,
+                                          SubscriberLocale,
+                                          ProductId, 
+                                          ProductName )
+				        SELECT 	s.SubscriberId, s.DeviceName,
+					s.SubscriberLocale, e.ProductId, e.ProductName
+					FROM NewProductEvent e 
+					JOIN NewProductSubscription s
+					ON e.CategoryId = s.CategoryId
+					</Action>
+					<EventClassName>NewProductEvent</EventClassName>
+				</EventRule>
+			</EventRules>
+		</SubscriptionClass>
+	</SubscriptionClasses>
+	<NotificationClasses>
+		<NotificationClass>
+			<NotificationClassName>NewProductNotification</NotificationClassName>
+			<Schema>
+				<Fields>
+					<Field>
+						<FieldName>ProductId</FieldName>
+						<FieldType>int</FieldType>
+					</Field>
+					<Field>
+						<FieldName>ProductName</FieldName>
+						<FieldType>nVarchar(50) </FieldType>
+					</Field>
+				</Fields>
+			</Schema>
+			<ContentFormatter>
+				<ClassName>XsltFormatter</ClassName>
+				<Arguments>
+					<Argument>
+						<Name>XsltBaseDirectoryPath</Name>
+						<Value>%BaseDirectoryPath%</Value>
+					</Argument>
+					<Argument>
+						<Name>XsltFileName</Name>
+						<Value>Notification.xslt</Value>
+					</Argument>
+				</Arguments>
+			</ContentFormatter>
+			<Protocols>
+				<Protocol>
+					<ProtocolName>File</ProtocolName>
+				</Protocol>
+			</Protocols>
+			<ExpirationAge>PT2H</ExpirationAge>
+		</NotificationClass>
+	</NotificationClasses>
+	<Providers>
+		<NonHostedProvider>
+			<ProviderName>NewProductApp</ProviderName>
+		</NonHostedProvider>
+	</Providers>
+	<Generator>
+		<SystemName>%NSSystem%</SystemName>
+	</Generator>
+	<Distributors>
+		<Distributor>
+			<SystemName>%NSSystem%</SystemName>
+		</Distributor>
+	</Distributors>
+	<ApplicationExecutionSettings>
+		<QuantumDuration>P0DT0H0M30S</QuantumDuration>
+		<ChronicleQuantumLimit>0</ChronicleQuantumLimit>
+		<SubscriptionQuantumLimit>0</SubscriptionQuantumLimit>
+		<ProcessEventsInOrder>true</ProcessEventsInOrder>
+	</ApplicationExecutionSettings>
+</Application>

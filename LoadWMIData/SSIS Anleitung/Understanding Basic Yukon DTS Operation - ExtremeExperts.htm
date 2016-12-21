@@ -1,0 +1,421 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0053)http://www.extremeexperts.com/SQL/Yukon/YukonDTS.aspx -->
+<HTML><HEAD><TITLE>Understanding Basic Yukon DTS Operation - ExtremeExperts</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8"><LINK 
+href="Understanding Basic Yukon DTS Operation - ExtremeExperts_files/Styles.css" 
+type=text/css rel=stylesheet>
+<META content="MSHTML 6.00.3790.218" name=GENERATOR></HEAD>
+<BODY>
+<FORM id=MainForm name=MainForm action=YukonDTS.aspx method=post><INPUT 
+type=hidden 
+value=dDwxMDYzMzA5MTM0O3Q8O2w8aTw4Pjs+O2w8dDw7bDxpPDA+Oz47bDx0PDtsPGk8MT47aTwyPjs+O2w8dDw7bDxpPDA+Oz47bDx0PDtsPGk8MD47PjtsPHQ8O2w8aTw0NT47PjtsPHQ8QDA8cDxwPGw8UGFnZUNvdW50O18hSXRlbUNvdW50O18hRGF0YVNvdXJjZUl0ZW1Db3VudDtEYXRhS2V5czs+O2w8aTwxPjtpPDE+O2k8MT47bDw+Oz4+Oz47Ozs7Ozs7Ozs7PjtsPGk8MD47PjtsPHQ8O2w8aTwyPjs+O2w8dDw7bDxpPDA+Oz47bDx0PDtsPGk8MT47aTwzPjtpPDU+Oz47bDx0PDtsPGk8MD47PjtsPHQ8QDxXaGlkYmV5IEFTUC5ORVQgTW9iaWxlIENvbnRyb2xzOz47Oz47Pj47dDw7bDxpPDA+Oz47bDx0PEA8U2FuamF5IFNoZXR0eSw7TWljcm9zb2Z0IFJlZ2lvbmFsIERpcmVjdG9yOz47Oz47Pj47dDw7bDxpPDA+Oz47bDx0PEA8MS8yMC8yMDA1Oz47Oz47Pj47Pj47Pj47Pj47Pj47Pj47Pj47Pj47dDw7bDxpPDA+Oz47bDx0PDtsPGk8MD47PjtsPHQ8O2w8aTwxPjs+O2w8dDxwPHA8bDxOYXZpZ2F0ZVVybDs+O2w8Y29udGFjdHVzLmFzcHg/VGl0bGU9VW5kZXJzdGFuZGluZyBCYXNpYyBZdWtvbiBEVFMgT3BlcmF0aW9uIC0gRXh0cmVtZUV4cGVydHM7Pj47Pjs7Pjs+Pjs+Pjs+Pjs+Pjs+Pjs+Pjs+IljLfctPbEpyM6Ee7aSqYprBhgE= 
+name=__VIEWSTATE> 
+<TABLE 
+style="WIDTH: 100%; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; HEIGHT: 100%; BORDER-BOTTOM-STYLE: none" 
+border=0>
+  <TBODY>
+  <TR style="HEIGHT: 20%">
+    <TD colSpan=3>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR vAlign=center>
+          <TD align=left width="80%"><IMG id=TopBar_Image1 alt="" 
+            src="Understanding Basic Yukon DTS Operation - ExtremeExperts_files/extreme.gif" 
+            border=0></TD></TR>
+        <TR>
+          <TD class=HeaderBar align=right width="100%" colSpan=2 height=18><A 
+            id=TopBar_HyperLink1 style="COLOR: white" 
+            href="http://www.extremeexperts.com/" target=_self>Home 
+            </A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            <A id=TopBar_Hyperlink2 style="COLOR: white" 
+            href="http://www.extremeexperts.com/General/Home/Aboutus.aspx" 
+            target=_self>About Us 
+            </A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            <A id=TopBar_Hyperlink3 style="COLOR: white" 
+            href="http://pub12.bravenet.com/guestbook/1029285460/" 
+            target=_Blank>Sign Guest Book 
+            </A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            <A id=TopBar_Hyperlink4 style="COLOR: white" 
+            href="http://www.extremeexperts.com/General/Home/ContactUs.aspx" 
+            target=_self>Contact Us 
+            </A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            <A id=TopBar_Hyperlink5 style="COLOR: white" 
+            href="http://www.extremeexperts.com/General/Home/Mailus.aspx" 
+            target=_self>Subscribe </A>&nbsp;</TD></TR></TBODY></TABLE></TD></TR>
+  <TR style="HEIGHT: 75%">
+    <TD style="WIDTH: 10%" vAlign=top align=left>
+      <TABLE class=SideMenuTable cellSpacing=0 cellPadding=0 width=138 
+        border=0><TBODY>
+        <TR class=menuheader>
+          <TD><SPAN class=label1 id=SideMenu_SQLServer>SQL</SPAN></TD></TR>
+        <TR borderColor=#000099>
+          <TD>
+            <TABLE style="Z-INDEX: 101; LEFT: 7px; POSITION: relative">
+              <TBODY>
+              <TR>
+                <TD><A class=nSelectedMenuText id=SideMenu_SQL_Articles 
+                  style="WIDTH: 120px; HEIGHT: 8px" 
+                  href="http://www.extremeexperts.com/SQL/Articles/default.aspx" 
+                  target=_self>Articles</A></TD></TR>
+              <TR>
+                <TD><A class=nSelectedMenuText id=SideMenu_SQL_CodeSnippets 
+                  style="WIDTH: 120px; HEIGHT: 8px" 
+                  href="http://www.extremeexperts.com/SQL/Tools/default.aspx" 
+                  target=_self>Tools</A></TD></TR>
+              <TR>
+                <TD><A class=nSelectedMenuText id=SideMenu_SQL_Scripts 
+                  style="WIDTH: 120px; HEIGHT: 8px" 
+                  href="http://www.extremeexperts.com/SQL/Scripts/default.aspx" 
+                  target=_self>Code Snippets</A></TD></TR>
+              <TR>
+                <TD><A class=nSelectedMenuText id=SideMenu_Hyperlink7 
+                  style="WIDTH: 120px; HEIGHT: 8px" 
+                  href="http://www.extremeexperts.com/SQL/Links/default.aspx" 
+                  target=_self>Links</A></TD></TR>
+              <TR>
+                <TD><A class=nSelectedMenuText id=SideMenu_SQL_TipnTricks 
+                  style="WIDTH: 120px; HEIGHT: 8px" 
+                  href="http://www.extremeexperts.com/SQL/Tips/default.aspx" 
+                  target=_self>Tips &amp; Tricks</A></TD></TR>
+              <TR>
+                <TD><A class=nSelectedMenuText id=SideMenu_Hyperlink5 
+                  style="WIDTH: 120px; HEIGHT: 8px" 
+                  href="http://www.extremeexperts.com/SQL/FAQ/default.aspx" 
+                  target=_self>FAQ</A></TD></TR>
+              <TR>
+                <TD><A class=nSelectedMenuText id=SideMenu_Hyperlink9 
+                  style="WIDTH: 120px; HEIGHT: 8px" 
+                  href="http://www.extremeexperts.com/SQL/Resources/default.aspx" 
+                  target=_self>Resources</A></TD></TR></TBODY></TABLE></TD></TR>
+        <TR class=menuheader>
+          <TD><SPAN id=SideMenu_Hyperlink3>.NET</SPAN></TD></TR>
+        <TR>
+          <TD>
+            <TABLE style="Z-INDEX: 102; LEFT: 7px; POSITION: relative">
+              <TBODY>
+              <TR>
+                <TD><A class=nSelectedMenuText id=SideMenu_Hyperlink1 
+                  style="WIDTH: 120px; HEIGHT: 8px" 
+                  href="http://www.extremeexperts.com/Net/Articles/default.aspx" 
+                  target=_self>Articles</A></TD></TR>
+              <TR>
+                <TD><A class=nSelectedMenuText id=SideMenu_Hyperlink2 
+                  style="WIDTH: 120px; HEIGHT: 8px" 
+                  href="http://www.extremeexperts.com/Net/CodeSnippets/default.aspx" 
+                  target=_self>Code Snippets</A></TD></TR>
+              <TR>
+                <TD><A class=nSelectedMenuText id=SideMenu_Hyperlink4 
+                  style="WIDTH: 120px; HEIGHT: 8px" 
+                  href="http://www.extremeexperts.com/Net/Links/default.aspx" 
+                  target=_self>Links</A></TD></TR>
+              <TR>
+                <TD><A class=nSelectedMenuText id=SideMenu_Hyperlink6 
+                  style="WIDTH: 120px; HEIGHT: 8px" 
+                  href="http://www.extremeexperts.com/Net/FAQ/default.aspx" 
+                  target=_self>FAQ</A></TD></TR>
+              <TR>
+                <TD><A class=nSelectedMenuText id=SideMenu_Hyperlink11 
+                  style="WIDTH: 120px; HEIGHT: 8px" 
+                  href="http://www.extremeexperts.com/Net/resources/default.aspx" 
+                  target=_self>Resources</A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR>
+      <TABLE class=SideMenuTable style="WIDTH: 138px; HEIGHT: 60px" 
+      cellSpacing=0 cellPadding=0 width=144 border=0>
+        <TBODY>
+        <TR class=menuheader height=25>
+          <TD><SPAN class=label1 id=SideMenu_Label5>Blogs</SPAN></TD></TR>
+        <TR>
+          <TD>
+            <TABLE style="Z-INDEX: 102; LEFT: 7px; POSITION: relative">
+              <TBODY>
+              <TR>
+                <TD><A class=nSelectedMenuText id=SideMenu_Hyperlink13 
+                  style="WIDTH: 120px; HEIGHT: 8px" 
+                  href="http://dotnetjunkies.com/Weblog/saravana" 
+                  target=_blank>Saravana Kumar</A></TD></TR>
+              <TR>
+                <TD><A class=nSelectedMenuText id=SideMenu_Hyperlink12 
+                  style="WIDTH: 120px; HEIGHT: 8px" 
+                  href="http://blogs.sqlxml.org/vinodkumar" target=_blank>Vinod 
+                  Kumar</A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR>
+      <TABLE class=SideMenuTable cellSpacing=0 cellPadding=0 width=138 
+        border=0><TBODY>
+        <TR class=menuheader height=25>
+          <TD align=middle><SPAN class=label1 
+            id=SideMenu_Label4>Newsletter</SPAN></TD></TR>
+        <TR borderColor=#000099 height=125>
+          <TD>
+            <P><A id=SideMenu_HyperLink10 style="WIDTH: 100%" 
+            href="http://www.extremeexperts.com/General/Home/Mailus.aspx">
+            <CENTER><IMG id=SideMenu_Image2 alt="" 
+            src="Understanding Basic Yukon DTS Operation - ExtremeExperts_files/Subscribe.gif" 
+            border=0> </CENTER></A><FONT face=Verdana size=2>Click on the image 
+            to subscribe to our Monthly Newsletter. </FONT>
+            <P></P></TD></TR>
+        <TR>
+          <TD align=middle>
+            <HR>
+            <A class=nSelectedMenuText id=SideMenu_Hyperlink14 
+            style="WIDTH: 120px; HEIGHT: 8px" 
+            href="http://www.extremeexperts.com/General/Home/newsletterarchive.aspx" 
+            target=_self>Click here for Archives</A></TD></TR></TBODY></TABLE><BR>
+      <TABLE class=SideMenuTable style="WIDTH: 138px; HEIGHT: 150px" 
+      cellSpacing=0 cellPadding=0 width=144 border=0>
+        <TBODY>
+        <TR class=menuheader height=25>
+          <TD><SPAN class=label1 id=SideMenu_Label1>Expert Chat</SPAN></TD></TR>
+        <TR>
+          <TD align=middle><IMG id=SideMenu_Image1 style="WIDTH: 96px" alt="" 
+            src="Understanding Basic Yukon DTS Operation - ExtremeExperts_files/live_chat.jpg" 
+            border=0> </TD></TR>
+        <TR borderColor=#000099>
+          <TD>
+            <TABLE id=SideMenu_DataGrid1 
+            style="BORDER-LEFT-COLOR: white; BORDER-BOTTOM-COLOR: white; BORDER-TOP-STYLE: none; BORDER-TOP-COLOR: white; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-COLLAPSE: collapse; BORDER-RIGHT-COLOR: white; BORDER-BOTTOM-STYLE: none" 
+            borderColor=white cellSpacing=0 rules=all border=1>
+              <TBODY>
+              <TR>
+                <TD>
+                  <TABLE width="100%">
+                    <TBODY>
+                    <TR>
+                      <TD align=middle width="100%" colSpan=2><A 
+                        id=SideMenu_DataGrid1__ctl3_Hyperlink8 
+                        href="http://www.microsoft.com/india/msdn/chat/" 
+                        target=_blank>Whidbey ASP.NET Mobile Controls</A> </TD></TR>
+                    <TR>
+                      <TD width="100%"><SPAN 
+                        id=SideMenu_DataGrid1__ctl3_Label2 
+                        style="FONT-SIZE: 10px; FONT-FAMILY: Verdana">Sanjay 
+                        Shetty,Microsoft Regional Director</SPAN> </TD></TR>
+                    <TR>
+                      <TD width="100%"><SPAN 
+                        id=SideMenu_DataGrid1__ctl3_Label3 
+                        style="FONT-SIZE: 10px; FONT-STYLE: italic; FONT-FAMILY: Verdana">Date:&nbsp;1/20/2005</SPAN> 
+                      </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD>
+    <TD class=ApplicationFrame style="WIDTH: 80%" vAlign=top align=left>
+      <H2><FONT face=Verdana size=4>Introduction to&nbsp;SQL Server 
+      2005&nbsp;DTS&nbsp;</FONT></H2>
+      <P><FONT face=Verdana size=2>DTS&nbsp;has come a long way&nbsp;in SQL 
+      Server 2005. The architecture of DTS has changed and transformed to the 
+      level where all users have to&nbsp;rethink&nbsp;the way DTS works from its 
+      previous versions. Nevertheless a more fresh perspective to understand 
+      this new version. I would surely consider that DTS&nbsp;has become more 
+      mature. And in this article we will take a quick tour to look at how a 
+      simple DTS Package can be created and used.</FONT></P>
+      <P><FONT face=Verdana size=2><STRONG>Creating your first DTS 
+      Project</STRONG></FONT></P>
+      <P><FONT face=Verdana size=2>To start our first project up and running, we 
+      need to open the Business intellegence Project Folder. The BI Environment 
+      allows us to work&nbsp;as a disconnected environment and still develop 
+      projects for SQL Server. You can find for yourself that some of the 
+      interesting projects include DTS, Reports Designer, Analysis services 
+      projects etc.</P>
+      <P><FONT face=Verdana size=2><IMG id=Image1 title="New project" alt="" 
+      src="Understanding Basic Yukon DTS Operation - ExtremeExperts_files/DTS1.jpg" 
+      align=middle border=0></FONT></P></FONT>
+      <P><FONT face=Verdana size=2>Click on the DTS Project and give the 
+      location for the project to be created and other parameters.</FONT></P>
+      <P>&nbsp; <IMG id=Image2 alt="" 
+      src="Understanding Basic Yukon DTS Operation - ExtremeExperts_files/DTS2.jpg" 
+      border=0></P>
+      <P><FONT face=Verdana size=2>As soon as the project opens up the typical 
+      Solution Explorer looks like above. And I've in the above project renamed 
+      my DTS package file.</FONT></P>
+      <P><IMG id=Image3 alt="" 
+      src="Understanding Basic Yukon DTS Operation - ExtremeExperts_files/DTS3.jpg" 
+      border=0></P>
+      <P><FONT face=Verdana size=2>Selecting the DTS Package we are presented in 
+      the main application frame. And looking at the Design view we find 
+      interesting tabs. </FONT></P>
+      <P><FONT face=Verdana size=2>1. <U><EM>Control Flow</EM></U>: Gives a 
+      logical window to look at tasks. The concept is same to what it ued to 
+      look in the DTS 2000 world too. This window contains some interesting new 
+      tasks, contraints and looping operators like the FOR Loop, FOR EACH Loop, 
+      SEQUENCE etc. This is the main task window. All the related control flow 
+      tasks are presented in the next task frame. Some of the interesting events 
+      are:</FONT></P>
+      <P><IMG id=Image4 title="Control flow Items" alt="" 
+      src="Understanding Basic Yukon DTS Operation - ExtremeExperts_files/DTS4.jpg" 
+      border=0></P>
+      <P><FONT face=Verdana size=2>2. <U><EM>Data Flow</EM></U>: The Data Flow 
+      designer manages all of the data movement and transformations between a 
+      source and target. In order to include data flow within your package, you 
+      must manually add a Data Flow task to the Control Flow designer or let DTS 
+      do it for you when you open the Data Flow designer window. Each projects 
+      can have multiple Data Flow tasks and each tasks can have a source and 
+      destination activities. There can be various transformations possible like 
+      the Aggregation, Derived Columns are possible. A typical Data flow package 
+      view will look like:</FONT></P>
+      <P><IMG id=Image5 alt="" 
+      src="Understanding Basic Yukon DTS Operation - ExtremeExperts_files/DTS5.jpg" 
+      border=0></P>
+      <P><FONT face=Verdana size=2>In the above example we have taken a Flat 
+      File Source task. This&nbsp;task is to use a flat file as input to our 
+      First DTS Package.&nbsp;</FONT>&nbsp;</P>
+      <P><FONT face=Verdana size=2>3. <U><EM>Event Handlers</EM></U>:&nbsp;This 
+      is an&nbsp;interface through which the task raises events and exposes the 
+      opportunity for events to be handled. DTS events for every executable 
+      container task within the package's runtime environment, are exposed in 
+      the user interface with each event having the possibility of its own event 
+      handler design surface for implementing compound work flows. Some event 
+      handlers provided are: OnCustomEvent, OnError, OnExecStatusChanged, 
+      OnNMProgress, OnPostExecute, OnPostValidate, OnPreExecute, OnPreValidate, 
+      OnProgress. All the parameters available for the present package are 
+      displayed in this section.</FONT></P>
+      <P><IMG id=Image7 alt="" 
+      src="Understanding Basic Yukon DTS Operation - ExtremeExperts_files/DTS16.jpg" 
+      border=0></P>
+      <P><FONT face=Verdana size=2>4. <U><EM>Package Explorer</EM></U>: This 
+      gives us an interface through which we can execute the package and view 
+      the health of the running Package. It gives you statistics of the various 
+      pipelines available, how they were executed and how they were 
+      synchronized. The total execution time is also monitored through this 
+      window. An typical execution will give an output as:</FONT></P>
+      <P><IMG id=Image6 alt="" 
+      src="Understanding Basic Yukon DTS Operation - ExtremeExperts_files/DTS14.jpg" 
+      border=0></P>
+      <P><FONT face=Verdana size=2><STRONG>Building our First 
+      Package</STRONG></FONT></P>
+      <P><FONT face=Verdana size=2>Having made a nice foundation for our DTS 
+      Package understanding. In the previous Data Flow task we have created a 
+      flat file source. Now we need to provide the connection details for our 
+      flat file source. And the steps for the same are as follows. Double click 
+      the Flat File Source in the Data Flow window. You will be presented with: 
+      </FONT></P>
+      <P><IMG id=Image8 alt="" 
+      src="Understanding Basic Yukon DTS Operation - ExtremeExperts_files/DTS6.jpg" 
+      border=0></P>
+      <P><FONT face=Verdana size=2>Click on the "New Connection" and a new 
+      connection is created. And then we are presented with a whole host of 
+      other information. For the new connection we need to provide the "path" 
+      (File Name(s) as in the diagram) from which we are going to load the file. 
+      And I like this part a bit because there seems to be intelligence created 
+      within the system. It automagically uses the information and populates the 
+      fields data. You are free to change the same later.</FONT></P>
+      <P><IMG id=Image9 alt="" 
+      src="Understanding Basic Yukon DTS Operation - ExtremeExperts_files/DTS7.jpg" 
+      border=0></P>
+      <P><FONT face=Verdana size=2>Give the above information and move to the 
+      next tab. Automatically the grid is loaded with sample data.The same is 
+      shown below:</FONT></P>
+      <P><IMG id=Image10 alt="" 
+      src="Understanding Basic Yukon DTS Operation - ExtremeExperts_files/DTS8.jpg" 
+      border=0></P>
+      <P><IMG id=Image11 alt="" 
+      src="Understanding Basic Yukon DTS Operation - ExtremeExperts_files/DTS9.jpg" 
+      border=0></P>
+      <P><FONT face=Verdana size=2>The best part lies in the next column 
+      properties tab. Here we will map the input columns to the corresponding 
+      datatypes. As said earlier the intellegent DTS service allows you to use 
+      the "Suggest Types" button and the columns from our datafile are mapped to 
+      appropriate datatypes based on the data present in those fields. And I 
+      feel DTS has become more usable and mature that the complex works have 
+      become simple.</FONT></P>
+      <P><FONT face=Verdana size=2>So we have created the data required for our 
+      input file to be loaded.</FONT></P>
+      <P><FONT face=Verdana size=2><STRONG>Manipulating data</STRONG></FONT></P>
+      <P><FONT face=Verdana size=2>The next step will be to create a sample 
+      transformation. Here we require is a "Derived Column" data flow task. And 
+      in this task we plan to transform some data from out datafile before we 
+      could actually dump the same into our tables. For this example we change 
+      the weight column to a value .25 times the value of the actual.</FONT></P>
+      <P><IMG id=Image12 alt="" 
+      src="Understanding Basic Yukon DTS Operation - ExtremeExperts_files/DTS10.jpg" 
+      border=0></P>
+      <P><FONT face=Verdana size=2>All these tasks are connected using the green 
+      task flow arrow. Hence this task of transformation used the output from 
+      the flat file. And it transforms the data for loading into the 
+      table.</FONT></P>
+      <P><FONT face=Verdana size=2><STRONG>Load into Table</STRONG></FONT></P>
+      <P><FONT face=Verdana size=2>Insert the data into the table is our next 
+      objective. For this drag and drop an OLE DB Destination task. And this 
+      task would require connection information. Give the connection information 
+      to connect to your localhost SQL Server 2005 desctination. For this you 
+      can also connect to SQL Server 2000 or 7.0. This will work flawlessly. 
+      Create a new table button. And I like this option because depending on the 
+      input given to this task DTS automatically gives us an structure to work 
+      with. And for our example I've changed the same as:</FONT></P>
+      <P><FONT face=Verdana size=2><IMG id=Image13 alt="" 
+      src="Understanding Basic Yukon DTS Operation - ExtremeExperts_files/DTS11.jpg" 
+      border=0></FONT></P>
+      <P><FONT face=Verdana size=2>On clicking OK the table will be created into 
+      the OLE DB Destination. After the connection has been established and the 
+      destination objects created, our focus now is to create the input and 
+      output column mappings. For the same click on the mappings tab:</FONT></P>
+      <P><IMG id=Image14 alt="" 
+      src="Understanding Basic Yukon DTS Operation - ExtremeExperts_files/DTS12.jpg" 
+      border=0></P>
+      <P><FONT face=Verdana size=2>We will not get into the "Error Output" tab. 
+      But here you can configure for the error cases in input data. You can 
+      optionally redirect your output to a different destination or you can even 
+      abort the whole DTS flow process. For the present example I've configured 
+      it to Ignore any errors since this is a very very simple task.</FONT></P>
+      <P><FONT face=Verdana size=2>With around 10000 rows in the input file and 
+      running the DTS Package the output finally looks like:</FONT></P>
+      <P><IMG id=Image15 alt="" 
+      src="Understanding Basic Yukon DTS Operation - ExtremeExperts_files/DTS13.jpg" 
+      border=0></P>
+      <P><FONT face=Verdana size=2>The output from the execution explorer as 
+      shown above, it takes just around 1.5 seconds to load this data into SQL 
+      Server 2005. And the PC I ran is just a 512 MB RAM&nbsp;Win XP machine. 
+      Hence I can surely assume on a better high end machine the performance can 
+      be multi-folds faster for sure. So lets take a look at the tables 
+      data:</FONT></P>
+      <P><FONT face=Verdana size=2><IMG id=Image16 alt="" 
+      src="Understanding Basic Yukon DTS Operation - ExtremeExperts_files/DTS15.jpg" 
+      border=0></FONT></P>
+      <P><FONT face=Verdana size=2><STRONG>Conclusion</STRONG></FONT></P>
+      <P><FONT face=Verdana size=2>I think this article does take a simple tour 
+      around creating your first simple, really simple DTS package</FONT><FONT 
+      face=Verdana size=2>. The opportunity that DTS opens up in SQL Server 2005 
+      is enormous and we will surely take a tour into some of the simple new DTS 
+      tasks that are available in this new version in our future articles. Do 
+      drop a line about your views on this article anytime. And again, I just 
+      take this opoortunity to say "Yukon Rocks" !!!</FONT></P>
+      <P dir=ltr style="MARGIN-RIGHT: 0px" align=left><FONT face=Verdana 
+      size=2><STRONG><U><FONT color=#cc0000>Update</FONT></U></STRONG>: On 
+      Popular demand we have added the Source Code and Sample datafile. Yukon 
+      Beta2 users can use the same: </FONT></P><FONT face=Verdana size=2>
+      <P align=right><A id=HyperLink1 title="Download Sample the datafile" 
+      href="http://www.extremeexperts.com/SQL/Yukon/YukonDTS-DataFile1000.zip" 
+      target=blank>Download Sample the datafile</A></P>
+      <P align=right><A id=HyperLink2 title="Download Source DTSX file" 
+      href="http://www.extremeexperts.com/SQL/Yukon/YukonDTS-DTSPackage.zip" 
+      target=Blank>Download Source DTSX file</A></P></FONT></TD></TR>
+  <TR style="HEIGHT: 5%">
+    <TD style="WIDTH: 100%" vAlign=center align=middle colSpan=3>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD></TD>
+          <TD align=right colSpan=2><A id=Footer_ratethis 
+            href="http://www.extremeexperts.com/General/Home/contactus.aspx?Title=Understanding Basic Yukon DTS Operation - ExtremeExperts">Comment 
+            about this article</A></TD></TR>
+        <TR>
+          <TD align=left width="5%"><FONT color=white size=1><!-- Start Bravenet.com Service Code -->
+            <SCRIPT language=JavaScript 
+            src="Understanding Basic Yukon DTS Operation - ExtremeExperts_files/code.htm" 
+            type=text/javascript></SCRIPT>
+<!-- End Bravenet.com Service Code --></FONT></TD>
+          <TD class=footer align=middle width="90%"><SPAN id=Footer_Label1 
+            style="FONT-SIZE: 12px; WIDTH: 100%; FONT-FAMILY: Verdana; HEIGHT: 16px">Copyright 
+            ©&nbsp;2000-2003 ExtremeExperts.com, <A 
+            href="http://www.extremeexperts.com/General/Home/Disclaimer.aspx">Terms 
+            of Use</A></SPAN> <SPAN id=Footer_Label2 
+            style="FONT-SIZE: 9px; WIDTH: 100%; FONT-FAMILY: Verdana; HEIGHT: 16px">Best 
+            viewed on 1024x768 using Microsoft Internet Explorer 5.5 and later. 
+            </SPAN><SPAN id=Footer_Label3 
+            style="FONT-SIZE: 9px; WIDTH: 100%; FONT-FAMILY: Verdana; HEIGHT: 16px">Hosted 
+            on Windows Server 2003/.NET Framework 1.1. </SPAN></TD>
+          <TD align=right width="5%"><FONT color=white size=1><A 
+            href="http://t.extreme-dm.com/?login=xpertsvs" target=_blank><IMG 
+            height=38 alt="" 
+            src="Understanding Basic Yukon DTS Operation - ExtremeExperts_files/i.gif" 
+            width=41 border=0></A>
+            <SCRIPT language=javascript1.2><!-- EXs=screen;EXw=EXs.width;navigator.appName!="Netscape"?EXb=EXs.colorDepth:EXb=EXs.pixelDepth;//--></SCRIPT>
+
+            <SCRIPT language=javascript><!--EXd=document;EXw?"":EXw="na";EXb?"":EXb="na";EXd.write("<img src=\"http://t0.extreme-dm.com","/c.g?tag=xpertsvs&j=y&srw="+EXw+"&srb="+EXb+"&","l="+escape(EXd.referrer)+"\" height=1 width=1>");//--></SCRIPT>
+            <NOSCRIPT><IMG height=1 alt="" 
+            src="Understanding Basic Yukon DTS Operation - ExtremeExperts_files/c.gif" 
+            width=1></NOSCRIPT></FONT> 
+</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></FORM></BODY></HTML>

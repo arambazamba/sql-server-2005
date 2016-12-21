@@ -1,0 +1,10 @@
+bin\Debug\UsingEndpoint.exe.config
+bin\Debug\UsingEndpoint.exe
+bin\Debug\UsingEndpoint.pdb
+bin\Debug\UsingEndpoint.xml
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\UsingEndpoint.Resources.resources
+obj\Debug\UsingEndpoint.vbproj.GenerateResource.Cache
+obj\Debug\UsingEndpoint.exe
+obj\Debug\UsingEndpoint.xml
+obj\Debug\UsingEndpoint.pdb

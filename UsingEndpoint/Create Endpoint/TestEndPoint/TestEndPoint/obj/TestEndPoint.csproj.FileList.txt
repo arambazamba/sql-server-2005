@@ -1,0 +1,6 @@
+bin\Debug\TestEndPoint.exe.config
+bin\Debug\TestEndPoint.exe
+bin\Debug\TestEndPoint.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\TestEndPoint.exe
+obj\Debug\TestEndPoint.pdb

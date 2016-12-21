@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Demo3">
+  <Items>
+    <LogicalFolder Name="Connections" Type="2">
+      <Items>
+        <ConnectionNode Name="BETA2-VPC\SQL2005:WEBVISION\alexander.pajer">
+          <Created>2005-09-06T23:53:58.6240384+02:00</Created>
+          <Type>SQL</Type>
+          <Server>BETA2-VPC\SQL2005</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName />
+        </ConnectionNode>
+        <ConnectionNode Name="SUNCHASER:WEBVISION\alexander.pajer">
+          <Created>2006-03-01T20:37:28.09375+01:00</Created>
+          <Type>SQL</Type>
+          <Server>SUNCHASER</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Queries" Type="0">
+      <Items>
+        <FileNode Name="CreateEndPoint.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SUNCHASER:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SUNCHASER</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>C:\Dokumente und Einstellungen\Administrator\Desktop\SQL\Demos\Demos1\UsingEndpoint\CreateEndPoint.sql</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Miscellaneous" Type="3">
+      <Items />
+    </LogicalFolder>
+  </Items>
+</SqlWorkbenchSqlProject>

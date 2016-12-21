@@ -1,0 +1,11 @@
+RUN SCRIPT
+==========
+sqlcmd -E -d AWPersonnel -i Department.sql
+
+QUERY TABLE
+===========
+sqlcmd
+USE AWPersonnel
+SELECT * FROM Department
+GO
+exit

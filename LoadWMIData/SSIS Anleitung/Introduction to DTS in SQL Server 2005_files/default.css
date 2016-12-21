@@ -1,0 +1,123 @@
+BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 11pt; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+H1 {
+	FONT-SIZE: 14pt; COLOR: #003399
+}
+H2 {
+	FONT-SIZE: 12pt; COLOR: #003399
+}
+H2 {
+	COLOR: #003399
+}
+.navsec {
+	FONT-WEIGHT: bold; FONT-SIZE: 12pt; COLOR: #ffffff
+}
+A:link {
+	COLOR: navy; TEXT-DECORATION: underline
+}
+A:visited {
+	TEXT-DECORATION: underline
+}
+A:hover {
+	FONT-WEIGHT: bold; TEXT-DECORATION: underline
+}
+A.newslink {
+	FONT-SIZE: 12pt
+}
+A.newslink:hover {
+	COLOR: #003399
+}
+A.nlink {
+	FONT-WEIGHT: bold; FONT-SIZE: 8pt; COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.nlink:visited {
+	TEXT-DECORATION: none
+}
+A.nlink:hover {
+	TEXT-DECORATION: underline
+}
+A.catlink {
+	FONT-SIZE: 8pt; COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.catlink:visited {
+	TEXT-DECORATION: none
+}
+A.catlink:hover {
+	TEXT-DECORATION: underline
+}
+A.adlink:link {
+	TEXT-DECORATION: none
+}
+A.adlink:visited {
+	TEXT-DECORATION: underline
+}
+A.adlink:hover {
+	TEXT-DECORATION: underline
+}
+.SectionPanel {
+	BORDER-RIGHT: #003399 1px solid; BORDER-TOP: #003399 1px solid; BORDER-LEFT: #003399 1px solid; BORDER-BOTTOM: #003399 1px solid
+}
+.small {
+	FONT-SIZE: 8pt
+}
+.verysmall {
+	FONT-SIZE: 7pt
+}
+.adtext {
+	FONT-SIZE: 8.5pt; COLOR: #000000
+}
+.warning {
+	FONT-SIZE: 8pt; COLOR: #ff0000
+}
+.smallinput {
+	BORDER-TOP-WIDTH: 1px; BORDER-LEFT-WIDTH: 1px; FONT-SIZE: 9pt; BORDER-LEFT-COLOR: #000000; BORDER-BOTTOM-WIDTH: 1px; BORDER-BOTTOM-COLOR: #000000; BORDER-TOP-COLOR: #000000; BACKGROUND-COLOR: #ffffff; BORDER-RIGHT-WIDTH: 1px; BORDER-RIGHT-COLOR: #000000
+}
+.smallbtn {
+	BORDER-TOP-WIDTH: 1px; BORDER-LEFT-WIDTH: 1px; FONT-SIZE: 8pt; BORDER-LEFT-COLOR: #000000; BORDER-BOTTOM-WIDTH: 1px; BORDER-BOTTOM-COLOR: #000000; BORDER-TOP-COLOR: #000000; BACKGROUND-COLOR: #add8e6; BORDER-RIGHT-WIDTH: 1px; BORDER-RIGHT-COLOR: #000000
+}
+.medbtn {
+	BORDER-TOP-WIDTH: 1px; BORDER-LEFT-WIDTH: 1px; FONT-SIZE: 10pt; BORDER-LEFT-COLOR: #000000; BORDER-BOTTOM-WIDTH: 1px; BORDER-BOTTOM-COLOR: #000000; BORDER-TOP-COLOR: #000000; BACKGROUND-COLOR: #add8e6; BORDER-RIGHT-WIDTH: 1px; BORDER-RIGHT-COLOR: #000000
+}
+SELECT {
+	BORDER-RIGHT: 1px solid; BORDER-TOP: 1px solid; BORDER-LEFT: 1px solid; BORDER-BOTTOM: 1px solid; BACKGROUND-COLOR: #ffffff
+}
+TH {
+	FONT-SIZE: 8pt; COLOR: white; BACKGROUND-COLOR: #003399
+}
+TD {
+	FONT-SIZE: 9pt
+}
+TABLE.form {
+	FONT-WEIGHT: normal; COLOR: #000000; BACKGROUND-COLOR: #f7f7f7
+}
+.sourcesite {
+	FONT-SIZE: 8pt; FONT-STYLE: italic
+}
+.date {
+	FONT-WEIGHT: bold; FONT-SIZE: 8pt
+}
+.date_new {
+	FONT-WEIGHT: bold; FONT-SIZE: 8pt; COLOR: #ff0000
+}
+.Item {
+	BACKGROUND: #f7f7f7
+}
+.AltItem {
+	BACKGROUND: #ffffff
+}
+.Separator {
+	BACKGROUND: #b4b4b4
+}
+.LoginError {
+	FONT-SIZE: 8pt; COLOR: #ff0000
+}
+.header {
+	FONT-SIZE: 8pt; COLOR: white; BACKGROUND-COLOR: #003399; TEXT-ALIGN: center
+}
+.uiCaption_1 {
+	FONT-WEIGHT: bold; FONT-SIZE: small; COLOR: white; FONT-FAMILY: 'Trebuchet MS' , Verdana, 'Lucida Sans Unicode' , Arial; BACKGROUND-COLOR: black
+}
+.uiInfoBlock_1 {
+	BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; BORDER-LEFT: black 1px solid; BORDER-BOTTOM: black 1px solid; BACKGROUND-COLOR: gainsboro
+}

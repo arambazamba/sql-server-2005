@@ -1,0 +1,89 @@
+<Project MSBuildVersion="2.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{c252feb5-a946-4202-b1d4-9916a0590387};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProductVersion>8.0.40426</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E0473439-D0D3-41D0-83A6-25725D4F0622}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <StartupObject>
+    </StartupObject>
+    <RootNamespace>ManagedUtilities2</RootNamespace>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>ManagedUtilities2</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <IncrementalBuild>false</IncrementalBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <IncrementalBuild>false</IncrementalBuild>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\CSHARP.Targets" />
+  <Import Project="$(MSBuildBinPath)\SQLServer.Targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{c252feb5-a946-4202-b1d4-9916a0590387}">
+        <SQLProject TestScriptFolder="TestScripts" />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <ItemGroup>
+    <AppDesigner Include="Project\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="SqlAccess, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=x86">
+      <HintPath>..\..\..\..\..\..\Microsoft Visual Studio 8\Common7\IDE\PublicAssemblies\sqlaccess.dll</HintPath>
+      <Name>sqlaccess</Name>
+      <SpecificVersion>True</SpecificVersion>
+      <Aliases>global</Aliases>
+      <ExecutableExtension>.dll</ExecutableExtension>
+    </Reference>
+    <Reference Include="System, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v2.0.40426\System.dll</HintPath>
+      <Name>System</Name>
+      <SpecificVersion>True</SpecificVersion>
+      <Aliases>global</Aliases>
+      <ExecutableExtension>.dll</ExecutableExtension>
+    </Reference>
+    <Reference Include="System.Data, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=x86">
+      <HintPath>..\..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v2.0.40426\System.Data.dll</HintPath>
+      <Name>System.Data</Name>
+      <SpecificVersion>True</SpecificVersion>
+      <Aliases>global</Aliases>
+      <ExecutableExtension>.dll</ExecutableExtension>
+    </Reference>
+    <Reference Include="System.Xml, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v2.0.40426\System.XML.dll</HintPath>
+      <Name>System.XML</Name>
+      <SpecificVersion>True</SpecificVersion>
+      <Aliases>global</Aliases>
+      <ExecutableExtension>.dll</ExecutableExtension>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="GetLongDate.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Project\" />
+  </ItemGroup>
+</Project>
